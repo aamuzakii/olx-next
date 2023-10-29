@@ -1,7 +1,8 @@
 .kartu {
-  border: 1px solid black;
+  border: 1px solid rgba(14,4,5,0.2);
   padding: 10px;
   margin: 10px;
+  border-radius: 4px;
 }
 
 
@@ -9,4 +10,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.harga {
+  font-size: 20px;
 }

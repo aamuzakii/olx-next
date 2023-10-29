@@ -10,9 +10,9 @@ export default function Home() {
         {[1, 1, 1, 1, 1, 1, 1, 1, 1].map((x) => (
           <div className={styles.kartu}>
             <Image src={src} alt="" width={215} height={153}></Image>
-            <h1>Rp 1.700.000</h1>
-            <h3>2 KT - 1 KM - 45 m2</h3>
-            <span>KEMARIN</span>
+            <h5 className={styles.harga}>Rp 1.700.000</h5>
+            <h5>2 KT - 1 KM - 45 m2</h5>
+            <p>KEMARIN</p>
           </div>
         ))}
       </div>
