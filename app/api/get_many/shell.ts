@@ -29,10 +29,16 @@ export async function getManyHouses() {
       );
 
       if (targetSpan) {
-        console.log(
-          targetSpan.parentElement.parentElement.parentElement.parentElement
-            .textContent
-        ); // Print the text inside the found span
+        const elementCollection =
+          targetSpan.parentElement.parentElement.parentElement.parentElement;
+
+        const loopable = elementCollection.children;
+
+        for (let i = 0; i < loopable.length; i++) {
+          const element = loopable[i];
+
+          console.log(element.textContent);
+        }
       } else {
         console.log("Span tag with data-aut-id='itemPrice' not found");
       }
