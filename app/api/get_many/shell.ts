@@ -68,15 +68,22 @@ export async function getHouseDetail(link: string) {
         console.error("No match found.");
       }
 
-      var Imgpattern = /apollo-singapore(.*?)"[^"]+/;
+      const { JSDOM } = require("jsdom");
 
-      var imgList = data.match(Imgpattern);
+      const dom = new JSDOM(data);
 
-      if (imgList) {
-        var extractedText = imgList[1];
-        console.log(extractedText);
+      // Access the document
+      const document = dom.window.document;
+
+      // Use querySelector to find the span with data-aut-id="itemPrice"
+      const targetSpan = document.querySelector(
+        'span[data-aut-id="itemPrice"]'
+      );
+
+      if (targetSpan) {
+        console.log(targetSpan.textContent); // Print the text inside the found span
       } else {
-        console.error("No match found.");
+        console.log("Span tag with data-aut-id='itemPrice' not found");
       }
     });
   } catch (error: any) {
