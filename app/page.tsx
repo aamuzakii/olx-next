@@ -35,17 +35,19 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.grid}>
         {list.map((h) => (
-          <div className={styles.kartu}>
-            <Image
-              src={h.imageUrl || ""}
-              alt=""
-              width={215}
-              height={153}
-            ></Image>
-            <h5 className={styles.harga}>Rp {h.price}</h5>
-            <h5>2 KT - 1 KM - 45 m2</h5>
-            <p>{h.publishedStr}</p>
-          </div>
+          <a href={h.url} target="_blank" rel="noopener noreferrer">
+            <div className={styles.kartu}>
+              <Image
+                src={h.imageUrl || ""}
+                alt=""
+                width={215}
+                height={153}
+              ></Image>
+              <h5 className={styles.harga}>Rp {h.price}</h5>
+              <h5>2 KT - 1 KM - 45 m2</h5>
+              <p>{h.publishedStr}</p>
+            </div>
+          </a>
         ))}
       </div>
     </main>

@@ -37,8 +37,7 @@ export async function getManyHouses() {
 
         if (match) {
           const src = match[1];
-          const arr = src.split(";");
-          imageUrl = arr[0];
+          imageUrl = src;
         } else {
           console.error("src attribute not found");
         }
@@ -50,7 +49,7 @@ export async function getManyHouses() {
         const publishStr = metadata.children[3]?.children[1]?.textContent;
 
         const finalObj = {
-          url: linkStr + "https://www.olx.co.id",
+          url: "https://www.olx.co.id" + linkStr,
           price: convertCurrencyStringToNumber(harga),
           publishedStr: publishStr,
           imageUrl,
