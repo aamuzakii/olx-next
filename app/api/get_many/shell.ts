@@ -48,6 +48,12 @@ export async function getManyHouses() {
         const judul = metadata.children[2]?.textContent;
         const publishStr = metadata.children[3]?.children[1]?.textContent;
 
+        if (publishStr === "Kemarin") {
+        }
+
+        if (publishStr === "Hari ini") {
+        }
+
         const finalObj = {
           url: "https://www.olx.co.id" + linkStr,
           price: convertCurrencyStringToNumber(harga),
