@@ -42,11 +42,35 @@ export async function getManyHouses() {
           console.log(mma.href);
 
           const image = mma.children[0];
+
+          const imagebener = image.children[1];
+
+          const htmlString = imagebener.innerHTML;
+
+          const srcRegex = /src="([^"]+)"/;
+          const match = htmlString.match(srcRegex);
+
+          if (match) {
+            const src = match[1];
+            const arr = src.split(";");
+            const link = arr[0];
+            console.log(link);
+          } else {
+            console.log("src attribute not found");
+          }
+
           const metadata = mma.children[1];
 
           for (let i = 0; i < metadata.children.length; i++) {
-            console.log(metadata.children[i].textContent);
+            if (i === metadata.children.length - 1) {
+              const cd = metadata.children[i].children[1];
+              console.log(cd?.textContent);
+            } else {
+              console.log(metadata.children[i].textContent);
+            }
           }
+
+          console.log("==========");
         }
       } else {
         console.log("Span tag with data-aut-id='itemPrice' not found");
