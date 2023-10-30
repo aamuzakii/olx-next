@@ -14,9 +14,11 @@ export async function GET() {
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
 
-      // wait 2 second
+      // await new Promise(() => {
+      //   setTimeout(() => {}, 2000);
+      // });
 
-      fs.readFile("output.txt", "utf8", (err, data) => {
+      fs.readFile("list.txt", "utf8", (err, data) => {
         if (err) {
           console.error("Error reading the file:", err);
           return;
