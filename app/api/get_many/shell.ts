@@ -1,6 +1,7 @@
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 import { convertCurrencyStringToNumber } from "@/app/helper";
+import { format, sub } from "date-fns";
 import fs from "fs/promises"; // Import fs.promises for async file operations
 
 const command =
@@ -46,12 +47,17 @@ export async function getManyHouses() {
         const harga = metadata.children[0]?.textContent;
         const feature = metadata.children[1]?.textContent;
         const judul = metadata.children[2]?.textContent;
-        const publishStr = metadata.children[3]?.children[1]?.textContent;
+        let publishStr = metadata.children[3]?.children[1]?.textContent;
 
         if (publishStr === "Kemarin") {
+          const today = new Date();
+          const yesterday = sub(today, { days: 1 });
+          publishStr = format(yesterday, "dd MMM");
         }
 
         if (publishStr === "Hari ini") {
+          const today = new Date();
+          publishStr = format(today, "dd MMM");
         }
 
         const finalObj = {
