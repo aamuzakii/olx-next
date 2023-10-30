@@ -5,7 +5,11 @@ import { PrismaClient } from "@prisma/client";
 export async function GET() {
   const prisma = new PrismaClient();
 
-  const houses = await prisma.house.findMany();
+  const houses = await prisma.house.findMany({
+    where: {
+      deleted: false,
+    },
+  });
   await prisma.$disconnect();
 
   return NextResponse.json({ data: houses });

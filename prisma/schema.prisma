@@ -17,5 +17,5 @@ model House {
   published    DateTime?
   publishedStr String?
   imageUrl     String?
-  deleted      Boolean?
+  deleted      Boolean?  @default(false)
 }
