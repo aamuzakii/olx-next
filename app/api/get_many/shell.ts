@@ -7,6 +7,7 @@ const command =
   'curl -o list.txt "https://www.olx.co.id/depok-kota_g4000024/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah"';
 
 export async function getManyHouses() {
+  let arr = [];
   try {
     // Use await with fs.promises.readFile for async file reading
     const data = await fs.readFile("list.txt", "utf8");
@@ -27,6 +28,7 @@ export async function getManyHouses() {
         const element = loopable[i];
         const anchor = element.children[0];
         const linkStr = anchor.href;
+        if (!linkStr) continue;
         const image = anchor.children[0];
         const imagebener = image.children[1];
         const htmlString = imagebener.innerHTML;
@@ -54,12 +56,15 @@ export async function getManyHouses() {
           imageUrl,
         };
 
-        console.log(finalObj);
+        // console.log(finalObj);
+        arr.push(finalObj);
       }
     } else {
       console.error("Span tag with data-aut-id='itemPrice' not found");
     }
   } catch (error: any) {
     console.error(`error: ${error.message}`);
+  } finally {
+    return arr;
   }
 }
