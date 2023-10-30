@@ -61,14 +61,10 @@ export async function getManyHouses() {
 
           const metadata = mma.children[1];
 
-          for (let i = 0; i < metadata.children.length; i++) {
-            if (i === metadata.children.length - 1) {
-              const cd = metadata.children[i].children[1];
-              console.log(cd?.textContent);
-            } else {
-              console.log(metadata.children[i].textContent);
-            }
-          }
+          const harga = metadata.children[0];
+          const feature = metadata.children[1];
+          const judul = metadata.children[2];
+          const publishStr = metadata.children[3]?.children[1];
 
           console.log("==========");
         }
