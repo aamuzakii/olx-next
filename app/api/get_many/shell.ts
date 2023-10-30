@@ -23,6 +23,7 @@ export async function getManyHouses() {
       const loopable = elementCollection.children;
 
       for (let i = 0; i < loopable.length - 1; i++) {
+        let imageUrl;
         const element = loopable[i];
         const anchor = element.children[0];
         const linkStr = anchor.href;
@@ -35,10 +36,9 @@ export async function getManyHouses() {
         if (match) {
           const src = match[1];
           const arr = src.split(";");
-          const link = arr[0];
-          console.log(link);
+          imageUrl = arr[0];
         } else {
-          console.log("src attribute not found");
+          console.error("src attribute not found");
         }
 
         const metadata = anchor.children[1];
@@ -51,12 +51,13 @@ export async function getManyHouses() {
           url: linkStr,
           price: convertCurrencyStringToNumber(harga),
           publishedStr: publishStr,
+          imageUrl,
         };
 
         console.log(finalObj);
       }
     } else {
-      console.log("Span tag with data-aut-id='itemPrice' not found");
+      console.error("Span tag with data-aut-id='itemPrice' not found");
     }
   } catch (error: any) {
     console.error(`error: ${error.message}`);
