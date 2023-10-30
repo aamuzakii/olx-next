@@ -8,8 +8,7 @@ const command =
 export async function getManyHouses() {
   try {
     const { stdout, stderr } = await exec(command);
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
+    console.error(`stderr: ${stderr}`);
 
     fs.readFile("list.txt", "utf8", (err, data) => {
       if (err) {
@@ -22,21 +21,20 @@ export async function getManyHouses() {
       const matches = data.match(pattern);
 
       if (matches) {
-        for (let i = 0; i < matches.length; i++) {
+        for (let i = 0; i < matches.length - 19; i++) {
           const hrefPattern = /href="([^"]+)"/;
           const match = matches[i].match(hrefPattern);
 
           if (match) {
             const hrefContent = match[1];
-            console.log(hrefContent);
             const fullLink = `https://www.olx.co.id${hrefContent}`;
             getHouseDetail(fullLink);
           } else {
-            console.log("href attribute not found");
+            console.error("href attribute not found");
           }
         }
       } else {
-        console.log("No matching tags found in the HTML content.");
+        console.error("No matching tags found in the HTML content.");
       }
     });
   } catch (error: any) {
@@ -45,14 +43,13 @@ export async function getManyHouses() {
 }
 
 export async function getHouseDetail(link: string) {
-  const command = `curl -o detail.txt "${link}"`;
+  const fileName = `${link.replaceAll("/", "-")}.txt`;
+
+  const command = `curl -o ${fileName} "${link}"`;
 
   try {
     const { stdout, stderr } = await exec(command);
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
-
-    const fileName = `${link}.txt`;
+    console.error(`stderr: ${stderr}`);
 
     fs.readFile(fileName, "utf8", (err, data) => {
       if (err) {
@@ -68,7 +65,7 @@ export async function getHouseDetail(link: string) {
         var extractedText = match[1];
         console.log(extractedText);
       } else {
-        console.log("No match found.");
+        console.error("No match found.");
       }
     });
   } catch (error: any) {
