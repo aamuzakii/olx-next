@@ -39,7 +39,7 @@ export async function getManyHouses() {
 
           const mma = element.children[0];
 
-          console.log(mma.href);
+          const linkStr = mma.href;
 
           const image = mma.children[0];
 
@@ -61,12 +61,20 @@ export async function getManyHouses() {
 
           const metadata = mma.children[1];
 
-          const harga = metadata.children[0];
-          const feature = metadata.children[1];
-          const judul = metadata.children[2];
-          const publishStr = metadata.children[3]?.children[1];
+          const harga = metadata.children[0]?.textContent;
+          const feature = metadata.children[1]?.textContent;
+          const judul = metadata.children[2]?.textContent;
+          const publishStr = metadata.children[3]?.children[1]?.textContent;
 
-          console.log("==========");
+          // console.log(harga, feature, judul, publishStr);
+
+          const finalObj = {
+            url: linkStr,
+            price: 0,
+            PublishedStr: publishStr,
+          };
+
+          console.log(finalObj);
         }
       } else {
         console.log("Span tag with data-aut-id='itemPrice' not found");
