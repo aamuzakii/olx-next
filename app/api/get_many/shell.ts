@@ -24,9 +24,9 @@ export async function getManyHouses() {
 
       for (let i = 0; i < loopable.length - 1; i++) {
         const element = loopable[i];
-        const mma = element.children[0];
-        const linkStr = mma.href;
-        const image = mma.children[0];
+        const anchor = element.children[0];
+        const linkStr = anchor.href;
+        const image = anchor.children[0];
         const imagebener = image.children[1];
         const htmlString = imagebener.innerHTML;
         const srcRegex = /src="([^"]+)"/;
