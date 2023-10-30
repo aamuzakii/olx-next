@@ -119,7 +119,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.8.9":
+"@types/jsdom@npm:^21.1.4":
+  version: 21.1.4
+  resolution: "@types/jsdom@npm:21.1.4"
+  dependencies:
+    "@types/node": "npm:*"
+    "@types/tough-cookie": "npm:*"
+    parse5: "npm:^7.0.0"
+  checksum: 011343281cd771f5758f2569a18a557dc5c0ccd580e0cc6b5ed690342ca6eccfa4a5bf17cb875b0bc1ff3ea262f0c148552f2d6188460b9d45e79f001995b30e
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:*, @types/node@npm:20.8.9":
   version: 20.8.9
   resolution: "@types/node@npm:20.8.9"
   dependencies:
@@ -159,6 +170,13 @@ __metadata:
   version: 0.16.5
   resolution: "@types/scheduler@npm:0.16.5"
   checksum: 625b63cd5dcaf6fb88fe03aa7c797f28cb121f03584126d4811b2d03f39bc3e238ce52cf7685ad8adfe8445d679934e6be47347723a6771ca2058c01f0c33760
+  languageName: node
+  linkType: hard
+
+"@types/tough-cookie@npm:*":
+  version: 4.0.4
+  resolution: "@types/tough-cookie@npm:4.0.4"
+  checksum: d419a2233e5ca44e22fc533146bd1ffd8a26ec7e786d24f8c1fba50e681059d77c0bf0003cd71e9c6185100bf669b147d8cc6fbf07bc8ffae147e3ac64b3ec71
   languageName: node
   linkType: hard
 
@@ -510,6 +528,7 @@ __metadata:
   resolution: "olx-next@workspace:."
   dependencies:
     "@prisma/client": "npm:5.5.2"
+    "@types/jsdom": "npm:^21.1.4"
     "@types/node": "npm:20.8.9"
     "@types/react": "npm:18.2.33"
     "@types/react-dom": "npm:18.2.14"
@@ -522,7 +541,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"parse5@npm:^7.1.2":
+"parse5@npm:^7.0.0, parse5@npm:^7.1.2":
   version: 7.1.2
   resolution: "parse5@npm:7.1.2"
   dependencies:

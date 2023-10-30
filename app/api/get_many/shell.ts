@@ -7,8 +7,8 @@ const command =
 
 export async function getManyHouses() {
   try {
-    const { stdout, stderr } = await exec(command);
-    console.error(`stderr: ${stderr}`);
+    // const { stdout, stderr } = await exec(command);
+    // console.error(`stderr: ${stderr}`);
 
     fs.readFile("list.txt", "utf8", (err, data) => {
       if (err) {
@@ -16,23 +16,43 @@ export async function getManyHouses() {
         return;
       }
 
+      const { JSDOM } = require("jsdom");
+
+      const dom = new JSDOM(data);
+
+      // Access the document
+      const document = dom.window.document;
+
+      // Use querySelector to find the span with data-aut-id="itemPrice"
+      const targetSpan = document.querySelector(
+        'span[data-aut-id="itemPrice"]'
+      );
+
+      if (targetSpan) {
+        console.log(
+          targetSpan.parentElement.parentElement.parentElement.parentElement
+            .textContent
+        ); // Print the text inside the found span
+      } else {
+        console.log("Span tag with data-aut-id='itemPrice' not found");
+      }
+
       const pattern = /<[^>]+data-aut-id="itemBox"[^>]*>.*?<\/[^>]+>/g;
 
       const matches = data.match(pattern);
 
       if (matches) {
-        for (let i = 0; i < matches.length - 19; i++) {
-          const hrefPattern = /href="([^"]+)"/;
-          const match = matches[i].match(hrefPattern);
-
-          if (match) {
-            const hrefContent = match[1];
-            const fullLink = `https://www.olx.co.id${hrefContent}`;
-            getHouseDetail(fullLink);
-          } else {
-            console.error("href attribute not found");
-          }
-        }
+        // for (let i = 0; i < matches.length - 19; i++) {
+        //   const hrefPattern = /href="([^"]+)"/;
+        //   const match = matches[i].match(hrefPattern);
+        //   if (match) {
+        //     const hrefContent = match[1];
+        //     const fullLink = `https://www.olx.co.id${hrefContent}`;
+        //     getHouseDetail(fullLink);
+        //   } else {
+        //     console.error("href attribute not found");
+        //   }
+        // }
       } else {
         console.error("No matching tags found in the HTML content.");
       }
@@ -76,9 +96,7 @@ export async function getHouseDetail(link: string) {
       const document = dom.window.document;
 
       // Use querySelector to find the span with data-aut-id="itemPrice"
-      const targetSpan = document.querySelector(
-        'span[data-aut-id="itemPrice"]'
-      );
+      const targetSpan = document.querySelector('span[data-aut-id="itemList"]');
 
       if (targetSpan) {
         console.log(targetSpan.textContent); // Print the text inside the found span
