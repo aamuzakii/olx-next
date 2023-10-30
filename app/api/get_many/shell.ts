@@ -50,7 +50,7 @@ export async function getManyHouses() {
         const publishStr = metadata.children[3]?.children[1]?.textContent;
 
         const finalObj = {
-          url: linkStr,
+          url: linkStr + "https://www.olx.co.id",
           price: convertCurrencyStringToNumber(harga),
           publishedStr: publishStr,
           imageUrl,

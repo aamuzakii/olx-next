@@ -5,8 +5,8 @@ import { PrismaClient } from "@prisma/client";
 export async function GET() {
   const prisma = new PrismaClient();
 
-  const user = await prisma.house.findFirst();
+  const houses = await prisma.house.findMany();
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: user });
+  return NextResponse.json({ data: houses });
 }
