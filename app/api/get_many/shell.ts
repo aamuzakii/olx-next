@@ -34,7 +34,7 @@ export async function getManyHouses() {
 
         const loopable = elementCollection.children;
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < loopable.length - 1; i++) {
           const element = loopable[i];
 
           const mma = element.children[0];
@@ -43,7 +43,6 @@ export async function getManyHouses() {
 
           const image = mma.children[0];
           const metadata = mma.children[1];
-          console.log(metadata.children.length);
 
           for (let i = 0; i < metadata.children.length; i++) {
             console.log(metadata.children[i].textContent);
