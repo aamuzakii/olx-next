@@ -1,5 +1,6 @@
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
+import { convertCurrencyStringToNumber } from "@/app/helper";
 import fs from "fs";
 
 const command =
@@ -70,7 +71,7 @@ export async function getManyHouses() {
 
           const finalObj = {
             url: linkStr,
-            price: 0,
+            price: convertCurrencyStringToNumber(harga),
             PublishedStr: publishStr,
           };
 
