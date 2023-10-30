@@ -57,12 +57,23 @@ export async function getHouseDetail(link: string) {
         return;
       }
 
-      var pattern = /apollo-singapore(.*?)"[^"]+/;
+      var Imgpattern = /apollo-singapore(.*?)"[^"]+/;
 
-      var match = data.match(pattern);
+      var imgList = data.match(Imgpattern);
 
-      if (match) {
-        var extractedText = match[1];
+      if (imgList) {
+        var extractedText = imgList[1];
+        console.log(extractedText);
+      } else {
+        console.error("No match found.");
+      }
+
+      var Imgpattern = /apollo-singapore(.*?)"[^"]+/;
+
+      var imgList = data.match(Imgpattern);
+
+      if (imgList) {
+        var extractedText = imgList[1];
         console.log(extractedText);
       } else {
         console.error("No match found.");
