@@ -75,26 +75,6 @@ export async function getManyHouses() {
       } else {
         console.log("Span tag with data-aut-id='itemPrice' not found");
       }
-
-      const pattern = /<[^>]+data-aut-id="itemBox"[^>]*>.*?<\/[^>]+>/g;
-
-      const matches = data.match(pattern);
-
-      if (matches) {
-        // for (let i = 0; i < matches.length - 19; i++) {
-        //   const hrefPattern = /href="([^"]+)"/;
-        //   const match = matches[i].match(hrefPattern);
-        //   if (match) {
-        //     const hrefContent = match[1];
-        //     const fullLink = `https://www.olx.co.id${hrefContent}`;
-        //     getHouseDetail(fullLink);
-        //   } else {
-        //     console.error("href attribute not found");
-        //   }
-        // }
-      } else {
-        console.error("No matching tags found in the HTML content.");
-      }
     });
   } catch (error: any) {
     console.error(`error: ${error.message}`);
