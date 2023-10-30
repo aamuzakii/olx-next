@@ -14,7 +14,8 @@ model House {
   id           Int       @id @default(autoincrement())
   url          String    @unique
   price        Int?
-  Published    DateTime?
-  PublishedStr String?
-  Deleted      Boolean?
+  published    DateTime?
+  publishedStr String?
+  imageUrl     String?
+  deleted      Boolean?
 }

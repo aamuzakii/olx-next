@@ -50,7 +50,7 @@ export async function getManyHouses() {
         const finalObj = {
           url: linkStr,
           price: convertCurrencyStringToNumber(harga),
-          PublishedStr: publishStr,
+          publishedStr: publishStr,
         };
 
         console.log(finalObj);
