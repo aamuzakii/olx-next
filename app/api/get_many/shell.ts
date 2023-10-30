@@ -41,7 +41,7 @@ export async function getManyHouses() {
           console.log("src attribute not found");
         }
 
-        const metadata = mma.children[1];
+        const metadata = anchor.children[1];
         const harga = metadata.children[0]?.textContent;
         const feature = metadata.children[1]?.textContent;
         const judul = metadata.children[2]?.textContent;
