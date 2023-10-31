@@ -1,20 +1,18 @@
 import { convertCurrencyStringToNumber } from "@/app/helper";
+import { exec } from "child_process";
 import { format, sub } from "date-fns";
 import fs from "fs/promises"; // Import fs.promises for async file operations
 const { JSDOM } = require("jsdom");
 
-const depok = "depok-kota_g4000024";
-const bogorKab = "bogor-kab_g4000004";
-const bekasiKota = "bekasi-kota_g4000020";
-const bogorKota = "bogor-kota_g4000021";
+export async function getManyHouses(city: string) {
+  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah`;
+  const command = `curl -o list.txt "${webUrl}"`;
+  console.info(webUrl);
 
-const command =
-  'curl -o list.txt "https://www.olx.co.id/depok-kota_g4000024/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah"';
-
-export async function getManyHouses() {
   let arr = [];
   try {
-    // Use await with fs.promises.readFile for async file reading
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const { stdout, stderr } = await exec(command);
     const data = await fs.readFile("list.txt", "utf8");
 
     const dom = new JSDOM(data);
