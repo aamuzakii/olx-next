@@ -39,8 +39,8 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.grid}>
         {list.map((h) => (
-          <a href={h.url} target="_blank" rel="noopener noreferrer">
-            <div className={styles.kartu}>
+          <div className={styles.kartu}>
+            <a href={h.url} target="_blank" rel="noopener noreferrer">
               <Image
                 src={h.imageUrl || ""}
                 alt=""
@@ -51,8 +51,8 @@ export default function Home() {
               <h5>2 KT - 1 KM - 45 m2</h5>
               <p>{h.publishedStr}</p>
               <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
-            </div>
-          </a>
+            </a>
+          </div>
         ))}
       </div>
     </main>
