@@ -68,7 +68,6 @@ export async function getManyHouses(city: string) {
           imageUrl,
         };
 
-        // console.log(finalObj);
         arr.push(finalObj);
       }
     } else {
