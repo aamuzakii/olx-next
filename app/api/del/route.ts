@@ -3,15 +3,17 @@ import { NextResponse, NextRequest } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
-  const {} = request;
   const prisma = new PrismaClient();
 
-  const houses = await prisma.house.delete({
+  const deleted = await prisma.house.update({
     where: {
-      id: 1,
+      id: 145,
+    },
+    data: {
+      deleted: true,
     },
   });
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: body });
+  return NextResponse.json({ data: deleted });
 }
