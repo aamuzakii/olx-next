@@ -29,8 +29,8 @@ export default function Home() {
 
   console.log(list);
 
-  const src =
-    "https://apollo-singapore.akamaized.net/v1/files/nmgmli9mrdbh3-ID/image;s=300x600;q=60";
+  const handleClickDelete = () => {};
+
   return (
     <main className={styles.main}>
       <div className={styles.grid}>
@@ -46,6 +46,7 @@ export default function Home() {
               <h5 className={styles.harga}>Rp {h.price}</h5>
               <h5>2 KT - 1 KM - 45 m2</h5>
               <p>{h.publishedStr}</p>
+              <button onClick={handleClickDelete}>DELETE</button>
             </div>
           </a>
         ))}
