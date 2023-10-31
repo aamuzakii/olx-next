@@ -50,8 +50,8 @@ export default function Home() {
               <h5 className={styles.harga}>Rp {h.price}</h5>
               <h5>2 KT - 1 KM - 45 m2</h5>
               <p>{h.publishedStr}</p>
-              <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
             </a>
+            <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
           </div>
         ))}
       </div>
