@@ -1,8 +1,7 @@
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
 import { convertCurrencyStringToNumber } from "@/app/helper";
 import { format, sub } from "date-fns";
 import fs from "fs/promises"; // Import fs.promises for async file operations
+const { JSDOM } = require("jsdom");
 
 const command =
   'curl -o list.txt "https://www.olx.co.id/depok-kota_g4000024/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah"';
@@ -13,7 +12,6 @@ export async function getManyHouses() {
     // Use await with fs.promises.readFile for async file reading
     const data = await fs.readFile("list.txt", "utf8");
 
-    const { JSDOM } = require("jsdom");
     const dom = new JSDOM(data);
     const document = dom.window.document;
 
