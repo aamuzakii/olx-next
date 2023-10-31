@@ -3,6 +3,11 @@ import { format, sub } from "date-fns";
 import fs from "fs/promises"; // Import fs.promises for async file operations
 const { JSDOM } = require("jsdom");
 
+const depok = "depok-kota_g4000024";
+const bogorKab = "bogor-kab_g4000004";
+const bekasiKota = "bekasi-kota_g4000020";
+const bogorKota = "bogor-kota_g4000021";
+
 const command =
   'curl -o list.txt "https://www.olx.co.id/depok-kota_g4000024/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah"';
 
