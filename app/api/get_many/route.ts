@@ -4,14 +4,14 @@ import { getManyHouses } from "./shell";
 import { bekasiKota, bogorKab, bogorKota, depok } from "./city";
 
 export async function GET() {
-  const preferredCities = [bekasiKota];
+  const preferredCities = [bekasiKota, bogorKab, bogorKota, depok];
 
-  const compoundedHouses = await Promise.all(
-    preferredCities.map(async (city) => {
-      const houses = await getManyHouses(city);
-      return houses;
-    })
-  );
+  const compoundedHouses = [];
+
+  for (const city of preferredCities) {
+    const houses = await getManyHouses(city);
+    compoundedHouses.push(houses);
+  }
 
   const flattenedHouses = compoundedHouses.flat();
 
