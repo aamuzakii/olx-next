@@ -36,6 +36,8 @@ export default function Home() {
   };
 
   return (
+    <>
+    <nav>OKO</nav>
     <main className={styles.main}>
       <div className={styles.grid}>
         {list.map((h) => (
@@ -56,5 +58,6 @@ export default function Home() {
         ))}
       </div>
     </main>
+    </>
   );
 }
