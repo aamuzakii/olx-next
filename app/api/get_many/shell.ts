@@ -47,7 +47,7 @@ export async function getManyHouses(city: string) {
         const metadata = anchor.children[1];
         const harga = metadata.children[0]?.textContent;
         const feature = metadata.children[1]?.textContent;
-        const judul = metadata.children[2]?.textContent;
+        const title = metadata.children[2]?.textContent;
         let publishStr = metadata.children[3]?.children[1]?.textContent;
 
         if (publishStr === "Kemarin") {
@@ -66,6 +66,8 @@ export async function getManyHouses(city: string) {
           price: convertCurrencyStringToNumber(harga),
           publishedStr: publishStr,
           imageUrl,
+          feature,
+          title,
         };
 
         arr.push(finalObj);

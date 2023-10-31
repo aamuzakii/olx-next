@@ -11,6 +11,8 @@ type House = {
   publishedStr: string | null;
   imageUrl: string | null;
   deleted: boolean | null;
+  title?: string;
+  feature?: string;
 };
 
 export default function Home() {
@@ -55,11 +57,12 @@ export default function Home() {
                 <Image
                   src={h.imageUrl || ""}
                   alt=""
-                  width={215}
+                  width={228}
                   height={153}
                 ></Image>
                 <h5 className={styles.harga}>Rp {h.price}</h5>
-                <h5>2 KT - 1 KM - 45 m2</h5>
+                <h5>{h.title}</h5>
+                <h5>{h.feature}</h5>
                 <p>{h.publishedStr}</p>
               </a>
               <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
