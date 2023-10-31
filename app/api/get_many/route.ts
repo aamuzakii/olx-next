@@ -3,14 +3,12 @@ import { PrismaClient } from "@prisma/client";
 import { getManyHouses } from "./shell";
 
 export async function GET() {
-  const x = await getManyHouses();
-
-  console.log(x);
+  const houses = await getManyHouses();
 
   const prisma = new PrismaClient();
 
   const res = await prisma.house.createMany({
-    data: x,
+    data: houses,
     skipDuplicates: true,
   });
 
