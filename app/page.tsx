@@ -29,7 +29,11 @@ export default function Home() {
 
   console.log(list);
 
-  const handleClickDelete = () => {};
+  const handleClickDelete = async (id: number) => {
+    const res = await fetch(`http://localhost:3000/api/del/${id}`);
+
+    const data = await res.json();
+  };
 
   return (
     <main className={styles.main}>
@@ -46,7 +50,7 @@ export default function Home() {
               <h5 className={styles.harga}>Rp {h.price}</h5>
               <h5>2 KT - 1 KM - 45 m2</h5>
               <p>{h.publishedStr}</p>
-              <button onClick={handleClickDelete}>DELETE</button>
+              <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
             </div>
           </a>
         ))}
