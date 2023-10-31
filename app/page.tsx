@@ -51,23 +51,33 @@ export default function Home() {
       </nav>
       <main className={styles.main}>
         <div className={styles.grid}>
-          {list.map((h) => (
-            <div className={styles.kartu}>
-              <a href={h.url} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src={h.imageUrl || ""}
-                  alt=""
-                  width={228}
-                  height={153}
-                ></Image>
-                <h5 className={styles.harga}>Rp {h.price}</h5>
-                <h5>{h.title}</h5>
-                <h5>{h.feature}</h5>
-                <p>{h.publishedStr}</p>
-              </a>
-              <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
-            </div>
-          ))}
+          {list.map((h) => {
+            let formattedNumber = "";
+            if (h.price) {
+              formattedNumber = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              }).format(h.price);
+            }
+
+            return (
+              <div className={styles.kartu}>
+                <a href={h.url} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={h.imageUrl || ""}
+                    alt=""
+                    width={228}
+                    height={153}
+                  ></Image>
+                  <p className={styles.harga}>{formattedNumber}</p>
+                  <p>{h.title}</p>
+                  <p>{h.feature}</p>
+                  <p>{h.publishedStr}</p>
+                </a>
+                <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
+              </div>
+            );
+          })}
         </div>
       </main>
     </>
