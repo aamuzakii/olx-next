@@ -19,4 +19,32 @@
 
 .harga {
   font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  font-size: 20px;
+}
+
+.title {
+  font-weight: 400;
+  margin-top: 5px;
+  color: var(--blackSecondaryText);
+  font-size: 14px;
+}
+
+.feature {
+  color: var(--blackText);
+  font-size: 14px;
+  margin: 2px 0 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.published {
+  font-size: 10px;
+  color: var(--blackSecondaryText);
 }

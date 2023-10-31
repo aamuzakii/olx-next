@@ -70,9 +70,9 @@ export default function Home() {
                     height={153}
                   ></Image>
                   <p className={styles.harga}>{formattedNumber}</p>
-                  <p>{h.title}</p>
-                  <p>{h.feature}</p>
-                  <p>{h.publishedStr}</p>
+                  <p className={styles.feature}>{h.feature}</p>
+                  <p className={styles.title}>{h.title}</p>
+                  <p className={styles.published}>{h.publishedStr}</p>
                 </a>
                 <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
               </div>
