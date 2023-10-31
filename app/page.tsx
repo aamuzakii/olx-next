@@ -33,31 +33,40 @@ export default function Home() {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
 
     const data = await res.json();
+    alert("deleted");
+  };
+
+  const handleClickRefetch = async () => {
+    const res = await fetch(`http://localhost:3000/api/get_many`);
+    const data = await res.json();
+    alert(`got ${data.data.count}`);
   };
 
   return (
     <>
-    <nav>OKO</nav>
-    <main className={styles.main}>
-      <div className={styles.grid}>
-        {list.map((h) => (
-          <div className={styles.kartu}>
-            <a href={h.url} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={h.imageUrl || ""}
-                alt=""
-                width={215}
-                height={153}
-              ></Image>
-              <h5 className={styles.harga}>Rp {h.price}</h5>
-              <h5>2 KT - 1 KM - 45 m2</h5>
-              <p>{h.publishedStr}</p>
-            </a>
-            <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
-          </div>
-        ))}
-      </div>
-    </main>
+      <nav>
+        <button onClick={handleClickRefetch}>Refetch</button>
+      </nav>
+      <main className={styles.main}>
+        <div className={styles.grid}>
+          {list.map((h) => (
+            <div className={styles.kartu}>
+              <a href={h.url} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={h.imageUrl || ""}
+                  alt=""
+                  width={215}
+                  height={153}
+                ></Image>
+                <h5 className={styles.harga}>Rp {h.price}</h5>
+                <h5>2 KT - 1 KM - 45 m2</h5>
+                <p>{h.publishedStr}</p>
+              </a>
+              <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
+            </div>
+          ))}
+        </div>
+      </main>
     </>
   );
 }
