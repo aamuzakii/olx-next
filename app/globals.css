@@ -14,13 +14,18 @@ a {
 button {
   margin: 1rem 0;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  background-color: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+  transition: background-color 400ms, border 200ms;
   /* background-color: rgba(238, 240, 241, 0.5); */
   border: 1px solid rgba(172, 175, 176, 0.3);
   border-radius: 5px;
   cursor: pointer;
+  padding: 8px;
+}
+
+button:hover {
+  background-color: rgb(180, 185, 188);
 }
 
 :root {
