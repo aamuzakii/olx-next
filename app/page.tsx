@@ -66,7 +66,7 @@ export default function Home() {
                   <Image
                     src={h.imageUrl || ""}
                     alt=""
-                    width={228}
+                    width={242}
                     height={153}
                   ></Image>
                   <p className={styles.harga}>{formattedNumber}</p>
