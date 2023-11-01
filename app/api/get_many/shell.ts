@@ -47,11 +47,16 @@ export async function getManyHouses(city: string) {
         }
 
         const metadata = anchor.children[1];
-        const harga = metadata.children[0]?.textContent;
-        const feature = metadata.children[1]?.textContent;
-        const title = metadata.children[2]?.textContent;
-        let publishStr = metadata.children[3]?.children[1]?.textContent;
-        let prefecture = metadata.children[3]?.children[0]?.textContent;
+
+        const firstContent = metadata.children[0]?.textContent;
+        const hasHighlight = firstContent === "Highlight";
+        const p = hasHighlight ? 1 : 0;
+
+        const harga = metadata.children[0 + p]?.textContent;
+        const feature = metadata.children[1 + p]?.textContent;
+        const title = metadata.children[2 + p]?.textContent;
+        let publishStr = metadata.children[3 + p]?.children[1]?.textContent;
+        let prefecture = metadata.children[3 + p]?.children[0]?.textContent;
 
         if (publishStr === "Kemarin") {
           const today = new Date();
