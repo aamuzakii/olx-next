@@ -11,14 +11,16 @@ export async function getManyHouses(city: string) {
 
   let arr = [];
   try {
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
     const { stdout, stderr } = await exec(command);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     const data = await fs.readFile("list.txt", "utf8");
 
     const dom = new JSDOM(data);
     const document = dom.window.document;
 
-    const targetSpan = document.querySelector('span[data-aut-id="itemPrice"]');
+    const targetSpan = await document.querySelector(
+      'span[data-aut-id="itemPrice"]'
+    );
 
     if (targetSpan) {
       const elementCollection =
