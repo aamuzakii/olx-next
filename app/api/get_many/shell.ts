@@ -65,7 +65,11 @@ export async function getManyHouses(city: string) {
         const subString = "hari yang lalu";
 
         if (publishStr?.includes(subString)) {
-          const x = publishStr.split(subString)[0];
+          const nDaysAgo: string = publishStr.split(subString)[0];
+          const today = new Date();
+          const thatDay = sub(today, { days: Number(nDaysAgo) });
+          publishStr = format(thatDay, "dd MMM");
+          console.log(publishStr);
         }
 
         const finalObj = {
