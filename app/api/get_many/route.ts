@@ -4,7 +4,7 @@ import { getManyHouses } from "./shell";
 import { bekasiKota, bogorKab, bogorKota, depok } from "./city";
 
 export async function GET() {
-  const preferredCities = [bekasiKota, bogorKab, bogorKota, depok];
+  const preferredCities = [depok];
 
   const compoundedHouses = [];
 

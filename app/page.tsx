@@ -30,8 +30,6 @@ export default function Home() {
     checkUserLoggedIn();
   }, []);
 
-  console.log(list);
-
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
 

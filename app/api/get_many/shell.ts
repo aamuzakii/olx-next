@@ -11,8 +11,8 @@ export async function getManyHouses(city: string) {
 
   let arr = [];
   try {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    // const { stdout, stderr } = await exec(command);
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    const { stdout, stderr } = await exec(command);
     const data = await fs.readFile("list.txt", "utf8");
 
     const dom = new JSDOM(data);
@@ -69,7 +69,6 @@ export async function getManyHouses(city: string) {
           const today = new Date();
           const thatDay = sub(today, { days: Number(nDaysAgo) });
           publishStr = format(thatDay, "dd MMM");
-          console.log(publishStr);
         }
 
         const finalObj = {
