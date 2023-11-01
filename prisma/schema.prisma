@@ -20,5 +20,7 @@ model House {
   published    DateTime?
   publishedStr String?
   imageUrl     String?
+  comment      String?
+  color        String?
   deleted      Boolean?  @default(false)
 }
