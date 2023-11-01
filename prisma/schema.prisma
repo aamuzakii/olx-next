@@ -16,6 +16,7 @@ model House {
   feature      String?
   title        String?
   price        Int?
+  prefecture   String?
   published    DateTime?
   publishedStr String?
   imageUrl     String?

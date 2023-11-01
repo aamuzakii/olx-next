@@ -5,7 +5,7 @@ import fs from "fs/promises"; // Import fs.promises for async file operations
 const { JSDOM } = require("jsdom");
 
 export async function getManyHouses(city: string) {
-  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2000000,type_eq_rumah`;
+  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2500000,type_eq_rumah`;
   const command = `curl -o list.txt "${webUrl}"`;
   console.info(webUrl);
 
@@ -49,6 +49,7 @@ export async function getManyHouses(city: string) {
         const feature = metadata.children[1]?.textContent;
         const title = metadata.children[2]?.textContent;
         let publishStr = metadata.children[3]?.children[1]?.textContent;
+        let prefecture = metadata.children[3]?.children[0]?.textContent;
 
         if (publishStr === "Kemarin") {
           const today = new Date();
@@ -68,6 +69,7 @@ export async function getManyHouses(city: string) {
           imageUrl,
           feature,
           title,
+          prefecture,
         };
 
         arr.push(finalObj);
