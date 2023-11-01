@@ -12,7 +12,7 @@ export async function getManyHouses(city: string) {
   let arr = [];
   try {
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    const { stdout, stderr } = await exec(command);
+    // const { stdout, stderr } = await exec(command);
     const data = await fs.readFile("list.txt", "utf8");
 
     const dom = new JSDOM(data);
@@ -60,6 +60,12 @@ export async function getManyHouses(city: string) {
         if (publishStr === "Hari ini") {
           const today = new Date();
           publishStr = format(today, "dd MMM");
+        }
+
+        const subString = "hari yang lalu";
+
+        if (publishStr?.includes(subString)) {
+          const x = publishStr.split(subString)[0];
         }
 
         const finalObj = {
