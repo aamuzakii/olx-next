@@ -13,6 +13,7 @@ type House = {
   deleted: boolean | null;
   title?: string;
   feature?: string;
+  prefecture?: string;
 };
 
 export default function Home() {
@@ -72,7 +73,14 @@ export default function Home() {
                   <p className={styles.harga}>{formattedNumber}</p>
                   <p className={styles.feature}>{h.feature}</p>
                   <p className={styles.title}>{h.title}</p>
-                  <p className={styles.published}>{h.publishedStr}</p>
+                  <div className={styles.bottom}>
+                    <p className={styles.published}>
+                      {h.publishedStr?.toUpperCase()}
+                    </p>
+                    <p className={styles.published}>
+                      {h.prefecture?.toUpperCase()}
+                    </p>
+                  </div>
                 </a>
                 <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
               </div>
