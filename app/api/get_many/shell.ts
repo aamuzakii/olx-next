@@ -8,7 +8,7 @@ export async function getManyHouses(city: string) {
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
-  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2500000,type_eq_rumah${empty}`;
+  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2500000,type_eq_rumah${sortByRelevance}`;
   const command = `curl -o list.txt "${webUrl}"`;
   console.info(webUrl);
 

@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { getManyHouses } from "./shell";
-import { bekasiKota, bogorKab, bogorKota, depok, cileungsi } from "./city";
+import {
+  bekasiKota,
+  bogorKab,
+  bogorKota,
+  depok,
+  cileungsi,
+  gunungPutri,
+  jatiSampurna,
+  cimanggis,
+} from "./city";
 
 export async function GET() {
-  const preferredCities = [depok, cileungsi];
+  const preferredCities = [cileungsi, gunungPutri, jatiSampurna, cimanggis];
 
   const compoundedHouses = [];
 
