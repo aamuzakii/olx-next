@@ -61,6 +61,9 @@ export async function getManyHouses(city: string) {
         let publishStr = metadata.children[3 + p]?.children[1]?.textContent;
         let prefecture = metadata.children[3 + p]?.children[0]?.textContent;
 
+        const isJakarta = prefecture.split(" ").includes("Jakarta");
+        if (isJakarta) continue;
+
         if (publishStr === "Kemarin") {
           const today = new Date();
           const yesterday = sub(today, { days: 1 });

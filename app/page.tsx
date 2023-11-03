@@ -14,6 +14,7 @@ type House = {
   title?: string;
   feature?: string;
   prefecture?: string;
+  comment?: string;
 };
 
 export default function Home() {
@@ -79,6 +80,8 @@ export default function Home() {
                       {h.prefecture?.toUpperCase()}
                     </p>
                   </div>
+                  <hr />
+                  <p className={styles.title}>{h.comment}</p>
                 </a>
                 <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
               </div>
