@@ -17,6 +17,11 @@ export async function GET() {
 
   const compoundedHouses = [];
 
+  // for (const query of queryList) {
+  //   const houses = await getHouseByQuery(query);
+  //   compoundedHouses.push(houses);
+  // }
+
   for (const city of preferredCities) {
     const houses = await getHousesByCity(city);
     compoundedHouses.push(houses);
