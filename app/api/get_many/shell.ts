@@ -4,7 +4,7 @@ import { format, sub } from "date-fns";
 import fs from "fs/promises"; // Import fs.promises for async file operations
 const { JSDOM } = require("jsdom");
 
-export async function getManyHouses(city: string) {
+export async function getHousesByCity(city: string) {
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";

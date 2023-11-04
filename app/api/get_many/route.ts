@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
-import { getManyHouses } from "./shell";
+import { getHousesByCity } from "./shell";
 import {
   bekasiKota,
   bogorKab,
@@ -18,7 +18,7 @@ export async function GET() {
   const compoundedHouses = [];
 
   for (const city of preferredCities) {
-    const houses = await getManyHouses(city);
+    const houses = await getHousesByCity(city);
     compoundedHouses.push(houses);
   }
 
