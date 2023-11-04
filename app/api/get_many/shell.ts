@@ -1,7 +1,7 @@
 import { convertCurrencyStringToNumber } from "@/app/helper";
 import { exec } from "child_process";
 import { format, sub } from "date-fns";
-import fs from "fs/promises"; // Import fs.promises for async file operations
+import fs from "fs/promises";
 const { JSDOM } = require("jsdom");
 
 export async function getHousesByCity(city: string) {
