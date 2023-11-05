@@ -2,20 +2,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-
-type House = {
-  id: number;
-  url: string;
-  price: number | null;
-  published: Date | null;
-  publishedStr: string | null;
-  imageUrl: string | null;
-  deleted: boolean | null;
-  title?: string;
-  feature?: string;
-  prefecture?: string;
-  comment?: string;
-};
+import { House } from "@prisma/client";
 
 export default function Home() {
   const [list, setList] = useState<House[]>([]);
