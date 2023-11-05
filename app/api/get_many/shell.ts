@@ -8,15 +8,17 @@ export async function getHousesByCity(city: string) {
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
+
+  const fileName = "list.txt";
   const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_1700000_to_2500000,type_eq_rumah${sortByRelevance}`;
-  const command = `curl -o list.txt "${webUrl}"`;
+  const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
   let arr = [];
   try {
     const { stdout, stderr } = await exec(command);
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    const data = await fs.readFile("list.txt", "utf8");
+    const data = await fs.readFile(fileName, "utf8");
 
     const dom = new JSDOM(data);
     const document = dom.window.document;
