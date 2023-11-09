@@ -8,6 +8,9 @@ export async function GET() {
   const houses = await prisma.house.findMany({
     where: {
       deleted: false,
+      price: {
+        lte: 2500000,
+      },
     },
   });
   await prisma.$disconnect();
