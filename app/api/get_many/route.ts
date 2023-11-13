@@ -10,10 +10,20 @@ import {
   gunungPutri,
   jatiSampurna,
   cimanggis,
+  sukmajaya,
+  tangsel,
 } from "./city";
 
 export async function GET() {
-  const preferredCities = [cileungsi, gunungPutri, jatiSampurna, cimanggis];
+  const preferredCities = [
+    cileungsi,
+    gunungPutri,
+    jatiSampurna,
+    cimanggis,
+    sukmajaya,
+    depok,
+    tangsel,
+  ];
 
   const compoundedHouses = [];
 

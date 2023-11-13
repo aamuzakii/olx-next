@@ -13,7 +13,7 @@ export async function getHousesByCity(city: string) {
   // const yearly = "20000000_to_30000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=price_between_${monthly},type_eq_rumah${sortByDate}`;
+  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=p_bedroom_eq_2%2B%2Cprice_between_${monthly},type_eq_rumah${sortByDate}`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
