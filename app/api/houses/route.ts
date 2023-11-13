@@ -9,7 +9,7 @@ export async function GET() {
     where: {
       deleted: false,
       price: {
-        lte: 2500000,
+        lte: 2200000,
       },
     },
   });

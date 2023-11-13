@@ -9,7 +9,8 @@ export async function getHousesByCity(city: string) {
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
 
-  const monthly = "1700000_to_2500000";
+  const monthlyBoros = "1700000_to_2500000";
+  const monthly = "1700000_to_2200000";
   // const yearly = "20000000_to_30000000";
 
   const fileName = "list.txt";
