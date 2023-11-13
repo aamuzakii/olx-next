@@ -25,6 +25,12 @@ export default function Home() {
     alert("deleted");
   };
 
+  const handleClickRevalidate = async () => {
+    const res = await fetch(`http://localhost:3000/api/revalidate`);
+    const data = await res.json();
+    alert(`revalidated. lost: ${data.data.count}`);
+  };
+
   const handleClickRefetch = async () => {
     const res = await fetch(`http://localhost:3000/api/get_many`);
     const data = await res.json();
@@ -35,6 +41,7 @@ export default function Home() {
     <>
       <nav>
         <button onClick={handleClickRefetch}>Refetch</button>
+        <button onClick={handleClickRevalidate}>Revalidate</button>
       </nav>
       <main className={styles.main}>
         <div className={styles.grid}>
