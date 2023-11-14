@@ -12,6 +12,9 @@ export async function GET() {
       price: {
         lte: maxBudget,
       },
+      standard: {
+        equals: null,
+      },
     },
   });
   await prisma.$disconnect();
