@@ -59,3 +59,7 @@
 .red{
   background-color: red;
 }
+
+.form {
+  display: none;
+}

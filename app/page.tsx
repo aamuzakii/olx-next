@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import style from "./page.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { House } from "@prisma/client";
 
 export default function Home() {
@@ -14,6 +14,8 @@ export default function Home() {
     setList(data.data);
   };
 
+  const exampleRef = useRef(null);
+
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
@@ -24,7 +26,11 @@ export default function Home() {
     const data = await res.json();
     alert("deleted");
   };
-  const handleOpenComment = async (id: number) => {};
+  const handleOpenComment = async (id: number) => {
+    const x = document.getElementsByTagName("form")[id];
+    x.style.display = "block";
+    console.log(x);
+  };
 
   const handleClickRevalidate = async () => {
     const res = await fetch(`http://localhost:3000/api/revalidate`);
@@ -46,7 +52,7 @@ export default function Home() {
       </nav>
       <main className={style.main}>
         <div className={style.grid}>
-          {list.map((h) => {
+          {list.map((h, i) => {
             let formattedNumber = "";
             if (h.price) {
               formattedNumber = new Intl.NumberFormat("id-ID", {
@@ -84,7 +90,16 @@ export default function Home() {
                 >
                   DELETE
                 </button>
-                <button onClick={() => handleOpenComment(h.id)}>COMMENT</button>
+                <button onClick={() => handleOpenComment(i)}>SHOW</button>
+                <form
+                  ref={exampleRef}
+                  action=""
+                  className={style.form}
+                  id="form"
+                >
+                  <input name="" id="" />
+                  <input type="button" value="" />
+                </form>
               </div>
             );
           })}
