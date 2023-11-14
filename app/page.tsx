@@ -24,6 +24,7 @@ export default function Home() {
     const data = await res.json();
     alert("deleted");
   };
+  const handleOpenComment = async (id: number) => {};
 
   const handleClickRevalidate = async () => {
     const res = await fetch(`http://localhost:3000/api/revalidate`);
@@ -79,10 +80,11 @@ export default function Home() {
                 </a>
                 <button
                   onClick={() => handleClickDelete(h.id)}
-                  className={style.foo}
+                  className={style.red}
                 >
                   DELETE
                 </button>
+                <button onClick={() => handleOpenComment(h.id)}>COMMENT</button>
               </div>
             );
           })}
