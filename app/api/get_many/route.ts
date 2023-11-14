@@ -2,16 +2,17 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { getHousesByCity } from "./shell";
 import {
-  bekasiKota,
   bogorKab,
   bogorKota,
   depok,
+  tangsel,
+  tangerangKota,
+  bekasiKota,
   cileungsi,
   gunungPutri,
   jatiSampurna,
   cimanggis,
   sukmajaya,
-  tangsel,
 } from "./city";
 
 export async function GET() {
@@ -23,6 +24,8 @@ export async function GET() {
     sukmajaya,
     depok,
     tangsel,
+    tangerangKota,
+    bekasiKota,
   ];
 
   const compoundedHouses = [];
