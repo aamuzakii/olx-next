@@ -6,9 +6,6 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   const id = Number(params.id);
-  console.log(request, "<<<");
-
-  console.log(request.body);
 
   let passedValue = await new Response(request.body).text();
   let { standard } = JSON.parse(passedValue);

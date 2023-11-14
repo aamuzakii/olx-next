@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const id = Number(params.id);
-  console.log("process deleting:", id);
+  console.warn("process deleting:", id);
 
   const prisma = new PrismaClient();
 

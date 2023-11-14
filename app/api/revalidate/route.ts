@@ -27,7 +27,7 @@ export async function GET() {
           // comment: "404",
         },
       });
-      console.log("deleted:", deleted.title);
+      console.info("deleted:", deleted.title);
     }
   });
   await prisma.$disconnect();

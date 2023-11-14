@@ -41,7 +41,6 @@ export default function Home() {
   const handleOpenComment = async (id: number) => {
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "block";
-    console.log(x);
   };
 
   const handleClickRevalidate = async () => {
@@ -60,7 +59,6 @@ export default function Home() {
 
   const submitComment = async (e: any, id: number) => {
     e.preventDefault();
-    console.log(comment);
     const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
       method: "post",
       headers: {

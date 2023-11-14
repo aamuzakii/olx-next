@@ -14,8 +14,6 @@ export async function GET() {
     },
   });
 
-  console.log(houses);
-
   await prisma.$disconnect();
 
   return NextResponse.json({ data: houses });
