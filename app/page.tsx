@@ -32,7 +32,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ comment: "imperfect" }),
+      body: JSON.stringify({ standard: "not - high" }),
     });
 
     // const data = await res.json();

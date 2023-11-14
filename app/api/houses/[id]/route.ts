@@ -11,22 +11,20 @@ export async function POST(
   console.log(request.body);
 
   let passedValue = await new Response(request.body).text();
-  let valueToJson = JSON.parse(passedValue);
-
-  console.log(valueToJson.comment);
+  let { standard } = JSON.parse(passedValue);
 
   // const requestBody = await request.json(); // Parse JSON from the request body
 
   const prisma = new PrismaClient();
 
-  // const updatedHouse = await prisma.house.update({
-  //   where: {
-  //     id,
-  //   },
-  //   data: {
-  //     comment: valueToJson.comment, // Assuming the comment is in the request body
-  //   },
-  // });
+  const updatedHouse = await prisma.house.update({
+    where: {
+      id,
+    },
+    data: {
+      standard, // Assuming the comment is in the request body
+    },
+  });
 
   await prisma.$disconnect();
 
