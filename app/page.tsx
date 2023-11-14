@@ -44,6 +44,20 @@ export default function Home() {
     alert(`got ${data.data.count}`);
   };
 
+  const [comment, setEmail] = useState("");
+
+  const submitComment = async (e: any, id: number) => {
+    e.preventDefault();
+    console.log(comment);
+    const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment }),
+    });
+  };
+
   return (
     <>
       <nav>
@@ -91,14 +105,16 @@ export default function Home() {
                   DELETE
                 </button>
                 <button onClick={() => handleOpenComment(i)}>SHOW</button>
-                <form
-                  ref={exampleRef}
-                  action=""
-                  className={style.form}
-                  id="form"
-                >
-                  <input name="" id="" />
-                  <input type="button" value="" />
+                <form ref={exampleRef} className={style.form} id="form">
+                  <input
+                    value={comment}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="comment"
+                    name="comment"
+                  />
+                  <button onClick={(e) => submitComment(e, h.id)}>
+                    Submit
+                  </button>
                 </form>
               </div>
             );
