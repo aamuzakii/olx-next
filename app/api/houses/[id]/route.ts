@@ -30,5 +30,5 @@ export async function POST(
 
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: updatedHouse.color });
+  return NextResponse.json({ data: 1 });
 }

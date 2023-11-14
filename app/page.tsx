@@ -27,10 +27,13 @@ export default function Home() {
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/houses/${id}, {
-      method: 'PATCH',
-    }`);
-    console.log(res);
+    const res = await fetch(`http://localhost:3000/api/houses/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment: "imperfect" }),
+    });
 
     // const data = await res.json();
     // alert("deleted");
