@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+import style from "./page.module.css";
 import { useEffect, useState } from "react";
 import { House } from "@prisma/client";
 
@@ -43,8 +43,8 @@ export default function Home() {
         <button onClick={handleClickRefetch}>Refetch</button>
         <button onClick={handleClickRevalidate}>Revalidate</button>
       </nav>
-      <main className={styles.main}>
-        <div className={styles.grid}>
+      <main className={style.main}>
+        <div className={style.grid}>
           {list.map((h) => {
             let formattedNumber = "";
             if (h.price) {
@@ -55,7 +55,7 @@ export default function Home() {
             }
 
             return (
-              <div className={styles.kartu}>
+              <div className={style.kartu}>
                 <a href={h.url} target="_blank" rel="noopener noreferrer">
                   <Image
                     src={h.imageUrl || ""}
@@ -63,21 +63,26 @@ export default function Home() {
                     width={242}
                     height={153}
                   ></Image>
-                  <p className={styles.harga}>{formattedNumber}</p>
-                  <p className={styles.feature}>{h.feature}</p>
-                  <p className={styles.title}>{h.title}</p>
-                  <div className={styles.bottom}>
-                    <p className={styles.published}>
+                  <p className={style.harga}>{formattedNumber}</p>
+                  <p className={style.feature}>{h.feature}</p>
+                  <p className={style.title}>{h.title}</p>
+                  <div className={style.bottom}>
+                    <p className={style.published}>
                       {h.publishedStr?.toUpperCase()}
                     </p>
-                    <p className={styles.published}>
+                    <p className={style.published}>
                       {h.prefecture?.toUpperCase()}
                     </p>
                   </div>
                   <hr />
-                  <p className={styles.title}>{h.comment}</p>
+                  <p className={style.title}>{h.comment}</p>
                 </a>
-                <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
+                <button
+                  onClick={() => handleClickDelete(h.id)}
+                  className={style.foo}
+                >
+                  DELETE
+                </button>
               </div>
             );
           })}
