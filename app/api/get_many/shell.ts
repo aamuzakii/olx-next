@@ -1,4 +1,5 @@
 import { convertCurrencyStringToNumber } from "@/app/helper";
+import { maxBudget } from "@/app/helper/general";
 import { exec } from "child_process";
 import { format, sub } from "date-fns";
 import fs from "fs/promises";
@@ -10,7 +11,7 @@ export async function getHousesByCity(city: string) {
   const empty = "";
 
   const monthlyBoros = "1700000_to_2500000";
-  const monthly = "1700000_to_2200000";
+  const monthly = `1700000_to_${maxBudget}`;
   // const yearly = "20000000_to_30000000";
 
   const fileName = "list.txt";

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { PrismaClient } from "@prisma/client";
+import { maxBudget } from "@/app/helper/general";
 
 export async function GET() {
   const prisma = new PrismaClient();
@@ -9,7 +10,7 @@ export async function GET() {
     where: {
       deleted: false,
       price: {
-        lte: 2200000,
+        lte: maxBudget,
       },
     },
   });
