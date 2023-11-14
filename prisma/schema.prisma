@@ -22,5 +22,6 @@ model House {
   imageUrl     String?
   comment      String?
   color        String?
+  standard     String?
   deleted      Boolean?  @default(false)
 }
