@@ -22,7 +22,14 @@ export default function Home() {
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
+    const data = await res.json();
+    alert("deleted");
+  };
 
+  const handleClickJustNotPerfect = async (id: number) => {
+    const res = await fetch(`http://localhost:3000/api/houses/${id}, {
+      method: 'PATCH',
+    }`);
     const data = await res.json();
     alert("deleted");
   };
@@ -103,6 +110,9 @@ export default function Home() {
                   className={style.red}
                 >
                   DELETE
+                </button>
+                <button onClick={() => handleClickJustNotPerfect(h.id)}>
+                  Acceptable MVP, Not Perfect
                 </button>
                 <button onClick={() => handleOpenComment(i)}>SHOW</button>
                 <form ref={exampleRef} className={style.form} id="form">

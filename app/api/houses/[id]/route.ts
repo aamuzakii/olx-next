@@ -2,24 +2,26 @@ import { NextResponse, NextRequest } from "next/server";
 
 import { PrismaClient } from "@prisma/client";
 
-export async function GET(
+export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const id = Number(params.id);
-  console.log("process deleting:", id);
 
   const prisma = new PrismaClient();
 
-  const deleted = await prisma.house.update({
-    where: {
-      id,
-    },
-    data: {
-      deleted: true,
-    },
-  });
+  console.log(id);
+
+  // const updatedHouse = await prisma.house.update({
+  //   where: {
+  //     id,
+  //   },
+  //   data: {
+  //     deleted: true,
+  //   },
+  // });
+
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: deleted.title });
+  return NextResponse.json({ data: 1 });
 }
