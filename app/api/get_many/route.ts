@@ -22,6 +22,7 @@ export async function GET() {
     jatiSampurna,
     cimanggis,
     sukmajaya,
+    bogorKab,
     depok,
     tangsel,
     tangerangKota,
