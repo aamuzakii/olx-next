@@ -30,8 +30,10 @@ export default function Home() {
     const res = await fetch(`http://localhost:3000/api/houses/${id}, {
       method: 'PATCH',
     }`);
-    const data = await res.json();
-    alert("deleted");
+    console.log(res);
+
+    // const data = await res.json();
+    // alert("deleted");
   };
   const handleOpenComment = async (id: number) => {
     const x = document.getElementsByTagName("form")[id];
