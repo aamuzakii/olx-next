@@ -35,6 +35,8 @@ export default function Home() {
       body: JSON.stringify({ standard: "not - high" }),
     });
 
+    await checkUserLoggedIn();
+
     // const data = await res.json();
     // alert("deleted");
   };
@@ -52,6 +54,7 @@ export default function Home() {
   const handleClickRefetch = async () => {
     const res = await fetch(`http://localhost:3000/api/get_many`);
     const data = await res.json();
+    await checkUserLoggedIn();
     alert(`got ${data.data.count}`);
   };
 
@@ -66,6 +69,7 @@ export default function Home() {
       },
       body: JSON.stringify({ comment }),
     });
+    await checkUserLoggedIn();
   };
 
   return (
