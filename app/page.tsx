@@ -23,7 +23,7 @@ export default function Home() {
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
     const data = await res.json();
-    alert("deleted");
+    await checkUserLoggedIn();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
