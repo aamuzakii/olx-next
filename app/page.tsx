@@ -69,6 +69,9 @@ export default function Home() {
       },
       body: JSON.stringify({ comment }),
     });
+    // const x = document.getElementsByTagName("form")[id];
+    // x.style.display = "none";
+    setEmail("");
     await checkUserLoggedIn();
   };
 
