@@ -1,1 +1,1 @@
-export const maxBudget = 2200000;
+export const maxBudget = 24000000;

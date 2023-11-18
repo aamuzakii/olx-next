@@ -6,16 +6,18 @@ import { maxBudget } from "@/app/helper/general";
 export async function GET() {
   const prisma = new PrismaClient();
 
-  const houses = await prisma.house.findMany({
-    where: {
-      deleted: false,
-      price: {
-        lte: maxBudget,
-      },
-      standard: {
-        equals: null,
-      },
+  const where = {
+    deleted: false,
+    price: {
+      lte: maxBudget,
     },
+    standard: {
+      equals: null,
+    },
+  };
+
+  const houses = await prisma.house.findMany({
+    where,
   });
   await prisma.$disconnect();
 
