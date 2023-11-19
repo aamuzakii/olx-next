@@ -46,9 +46,9 @@ const Card = ({
     let x;
     let existingCommentEl;
 
-    const myVar = label.charAt(0).toUpperCase() + label.slice(1);
-    x = eval(`form${myVar}Ref`).current;
-    existingCommentEl = eval(`previos${myVar}Ref`).current;
+    const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
+    x = eval(`form${titleCase}Ref`).current;
+    existingCommentEl = eval(`previos${titleCase}Ref`).current;
 
     x!.style.display = "flex";
     existingCommentEl!.style.display = "none";
