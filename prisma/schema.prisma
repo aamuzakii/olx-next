@@ -16,7 +16,7 @@ model House {
   feature      String?
   title        String?
   price        Int?
-  score        Int?
+  score        Int?      @default(0)
   prefecture   String?
   published    DateTime?
   publishedStr String?
