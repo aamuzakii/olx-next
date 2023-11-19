@@ -30,9 +30,6 @@ const Card = ({
     });
 
     await checkUserLoggedIn();
-
-    // const data = await res.json();
-    // alert("deleted");
   };
   const handleOpenComment = async (id: number, e: any) => {
     e.preventDefault();
@@ -40,19 +37,6 @@ const Card = ({
     x.style.display = "block";
     const existingComment = document.getElementsByTagName("h5")[id].innerText;
     x.children[0].value = existingComment;
-  };
-
-  const handleClickRevalidate = async () => {
-    const res = await fetch(`http://localhost:3000/api/revalidate`);
-    const data = await res.json();
-    alert(`revalidated. lost: ${data.data.count}`);
-  };
-
-  const handleClickRefetch = async () => {
-    const res = await fetch(`http://localhost:3000/api/get_many`);
-    const data = await res.json();
-    await checkUserLoggedIn();
-    alert(`got ${data.data.count}`);
   };
 
   const [comment, setComment] = useState("");
@@ -70,6 +54,8 @@ const Card = ({
     await checkUserLoggedIn();
   };
 
+  const myRef = useRef(null);
+
   return (
     <div className={style.kartu}>
       <a href={h.url} target="_blank" rel="noopener noreferrer">
@@ -82,7 +68,6 @@ const Card = ({
           <p className={style.published}>{h.prefecture?.toUpperCase()}</p>
         </div>
         <hr />
-        <h5 className={style.comment}>{h.comment}</h5>
       </a>
       <div className={style.button_wrapper}>
         <button onClick={() => handleClickDelete(h.id)} className={style.red}>
@@ -91,8 +76,9 @@ const Card = ({
         <button onClick={() => handleClickJustNotPerfect(h.id)}>
           Ga Ngiler Aja
         </button>
-        <button onClick={(e) => handleOpenComment(i, e)}>SHOW</button>
       </div>
+      <button onClick={(e) => handleOpenComment(i, e)}>SHOW</button>
+      <h5 className={style.comment}>{h.comment}</h5>
       <form className={style.form} id="form">
         <input
           value={comment}
