@@ -117,16 +117,18 @@ export default function Home() {
                   <hr />
                   <h5 className={style.comment}>{h.comment}</h5>
                 </a>
-                <button
-                  onClick={() => handleClickDelete(h.id)}
-                  className={style.red}
-                >
-                  DELETE
-                </button>
-                <button onClick={() => handleClickJustNotPerfect(h.id)}>
-                  Acceptable MVP, Not Perfect
-                </button>
-                <button onClick={() => handleOpenComment(i)}>SHOW</button>
+                <div className={style.button_wrapper}>
+                  <button
+                    onClick={() => handleClickDelete(h.id)}
+                    className={style.red}
+                  >
+                    DELETE
+                  </button>
+                  <button onClick={() => handleClickJustNotPerfect(h.id)}>
+                    Acceptable MVP, Not Perfect
+                  </button>
+                  <button onClick={() => handleOpenComment(i)}>SHOW</button>
+                </div>
                 <form ref={exampleRef} className={style.form} id="form">
                   <input
                     value={comment}

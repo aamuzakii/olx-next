@@ -69,3 +69,7 @@
 .form {
   display: none;
 }
+
+.button_wrapper {
+  display: flex;
+}
