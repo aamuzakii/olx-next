@@ -14,8 +14,8 @@ const Card = ({
   formattedNumber: any;
   i: number;
 }) => {
-  const [comment, setComment] = useState("");
-  const [workDistance, setWorkDistance] = useState("");
+  const [comment, setComment] = useState(h.comment);
+  const [workDistance, setWorkDistance] = useState(h.workDistance);
 
   const previosCommentRef = useRef<HTMLHeadingElement | null>(null);
   const formCommentRef = useRef<HTMLFormElement | null>(null);

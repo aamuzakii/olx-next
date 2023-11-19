@@ -12,8 +12,25 @@ export async function POST(
 
   const prisma = new PrismaClient();
 
-  if (valueToJson.type) {
+  if (valueToJson.type !== "comment") {
     console.log("=======", valueToJson);
+    let data;
+
+    switch (valueToJson.type) {
+      case "workDistance":
+        data = { workDistance: valueToJson.workDistance };
+        break;
+
+      default:
+        break;
+    }
+
+    await prisma.house.update({
+      where: {
+        id,
+      },
+      data: data as any,
+    });
   } else {
     const updatedHouse = await prisma.house.update({
       where: {
