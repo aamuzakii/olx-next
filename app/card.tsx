@@ -128,7 +128,7 @@ const Card = ({
             break;
         }
         return (
-          <>
+          <React.Fragment key={i}>
             <h5
               onClick={(e) => handleOpenComment(i, e, x.label)}
               ref={previousRef}
@@ -138,7 +138,7 @@ const Card = ({
             </h5>
             <form className={style.form} id="form" ref={formRef}>
               <input
-                value={stateValue as string}
+                value={(stateValue as string) || ""}
                 onChange={onChange}
                 placeholder={x.label}
                 name={x.label}
@@ -147,7 +147,7 @@ const Card = ({
                 Submit
               </button>
             </form>
-          </>
+          </React.Fragment>
         );
       })}
     </div>
