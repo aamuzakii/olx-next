@@ -14,6 +14,8 @@ const Card = ({
   formattedNumber: any;
   i: number;
 }) => {
+  const [comment, setComment] = useState("");
+
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
     const data = await res.json();
@@ -37,9 +39,8 @@ const Card = ({
     x.style.display = "flex";
     const existingComment = document.getElementsByTagName("h5")[id].innerText;
     x.children[0].value = existingComment;
+    setComment(existingComment);
   };
-
-  const [comment, setComment] = useState("");
 
   const submitComment = async (e: any, id: number) => {
     e.preventDefault();
