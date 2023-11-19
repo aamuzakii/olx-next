@@ -121,7 +121,6 @@ const Card = ({
       </div>
       {[{ label: "comment" }, { label: "workDistance" }].map((x, i) => {
         let previousRef;
-        let value;
         let formRef;
         let stateValue;
         let onChange;
@@ -129,14 +128,12 @@ const Card = ({
           case "comment":
             previousRef = previosCommentRef;
             formRef = formCommentRef;
-            value = h.comment;
             stateValue = comment;
             onChange = (e: any) => setComment(e.target.value);
             break;
           case "workDistance":
             previousRef = previosWorkDistanceRef;
             formRef = formWorkDistanceRef;
-            value = h.workDistance;
             stateValue = workDistance;
             onChange = (e: any) => setWorkDistance(e.target.value);
             break;
