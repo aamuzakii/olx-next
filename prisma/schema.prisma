@@ -11,18 +11,24 @@ datasource db {
 }
 
 model House {
-  id           Int       @id @default(autoincrement())
-  url          String    @unique
-  feature      String?
-  title        String?
-  price        Int?
-  score        Int?      @default(0)
-  prefecture   String?
-  published    DateTime?
-  publishedStr String?
-  imageUrl     String?
-  comment      String?
-  color        String?
-  standard     String?
-  deleted      Boolean?  @default(false)
+  id             Int       @id @default(autoincrement())
+  url            String    @unique
+  feature        String?
+  title          String?
+  price          Int?
+  score          Int?      @default(0)
+  prefecture     String?
+  published      DateTime?
+  publishedStr   String?
+  imageUrl       String?
+  comment        String?
+  warteg         String?
+  schoolDistance String?
+  workDistance   String?
+  noNoise        String?
+  flood          String?
+  gateOrCanopy   String?
+  color          String?
+  standard       String?
+  deleted        Boolean?  @default(false)
 }
