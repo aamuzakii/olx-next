@@ -16,7 +16,7 @@ const Card = ({
 }) => {
   const [comment, setComment] = useState("");
 
-  const previosCommentRef = useRef<HTMLElement | null>(null);
+  const previosCommentRef = useRef<HTMLHeadingElement | null>(null);
   const formCommentRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
