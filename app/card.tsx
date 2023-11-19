@@ -15,9 +15,12 @@ const Card = ({
   i: number;
 }) => {
   const [comment, setComment] = useState("");
+  const [workDistance, setWorkDistance] = useState("");
 
   const previosCommentRef = useRef<HTMLHeadingElement | null>(null);
   const formCommentRef = useRef<HTMLFormElement | null>(null);
+  const previosWorkDistanceRef = useRef<HTMLHeadingElement | null>(null);
+  const formWorkDistanceRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
@@ -36,15 +39,37 @@ const Card = ({
 
     await checkUserLoggedIn();
   };
-  const handleOpenComment = async (id: number, e: any) => {
+  const handleOpenComment = async (id: number, e: any, label: string) => {
     e.preventDefault();
-    const x = formCommentRef.current;
+    let x;
+    let existingCommentEl;
+
+    switch (label) {
+      case "comment":
+        x = formCommentRef.current;
+        existingCommentEl = previosCommentRef.current;
+        break;
+      case "workDistance":
+        x = formWorkDistanceRef.current;
+        existingCommentEl = previosWorkDistanceRef.current;
+        break;
+      default:
+        break;
+    }
     x!.style.display = "flex";
-    const existingCommentEl = previosCommentRef.current;
     existingCommentEl!.style.display = "none";
     const existingComment = existingCommentEl!.innerText;
     x!.children[0].value = existingComment;
-    setComment(existingComment);
+    switch (label) {
+      case "comment":
+        setComment(existingComment);
+        break;
+      case "workDistance":
+        setWorkDistance(existingComment);
+        break;
+      default:
+        break;
+    }
   };
 
   const submitComment = async (e: any, id: number) => {
@@ -86,22 +111,28 @@ const Card = ({
           Ga Ngiler Aja
         </button>
       </div>
-      <h5
-        onClick={(e) => handleOpenComment(i, e)}
-        ref={previosCommentRef}
-        className={style.comment}
-      >
-        {h.comment || "comment"}
-      </h5>
-      <form className={style.form} id="form" ref={formCommentRef}>
-        <input
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder="comment"
-          name="comment"
-        />
-        <button onClick={(e) => submitComment(e, h.id)}>Submit</button>
-      </form>
+      {[{ label: "comment" }, { label: "workDistance" }].map((x, i) => {
+        return (
+          <>
+            <h5
+              onClick={(e) => handleOpenComment(i, e, label)}
+              ref={previosCommentRef}
+              className={style.comment}
+            >
+              {h.comment || x.label}
+            </h5>
+            <form className={style.form} id="form" ref={formCommentRef}>
+              <input
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder={x.label}
+                name={x.label}
+              />
+              <button onClick={(e) => submitComment(e, h.id)}>Submit</button>
+            </form>
+          </>
+        );
+      })}
     </div>
   );
 };
