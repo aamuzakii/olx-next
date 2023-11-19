@@ -113,18 +113,8 @@ const Card = ({
         const formRef = eval(`form${titleCase}Ref`);
         const previousRef = eval(`previos${titleCase}Ref`);
         let stateValue = eval(x.label);
-        let onChange;
+        let onChange = (e: any) => eval(`set${titleCase}`)(e.target.value);
 
-        switch (x.label) {
-          case "comment":
-            onChange = (e: any) => setComment(e.target.value);
-            break;
-          case "workDistance":
-            onChange = (e: any) => setWorkDistance(e.target.value);
-            break;
-          default:
-            break;
-        }
         return (
           <React.Fragment key={i}>
             <h5
