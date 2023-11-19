@@ -54,16 +54,7 @@ const Card = ({
     existingCommentEl!.style.display = "none";
     const existingComment = existingCommentEl!.innerText;
     x!.children[0].value = existingComment;
-    switch (label) {
-      case "comment":
-        setComment(existingComment);
-        break;
-      case "workDistance":
-        setWorkDistance(existingComment);
-        break;
-      default:
-        break;
-    }
+    eval(`set${titleCase}`)(existingComment);
   };
 
   const submitComment = async (e: any, id: number, label: string) => {
