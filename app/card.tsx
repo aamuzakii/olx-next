@@ -16,7 +16,8 @@ const Card = ({
 }) => {
   const [comment, setComment] = useState("");
 
-  const previosCommentRef = useRef(null);
+  const previosCommentRef = useRef<HTMLElement | null>(null);
+  const formCommentRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
@@ -57,6 +58,7 @@ const Card = ({
     });
     setComment("");
     previosCommentRef.current!.style.display = "flex";
+    formCommentRef.current!.style.display = "none";
 
     await checkUserLoggedIn();
   };
@@ -88,7 +90,7 @@ const Card = ({
       <h5 ref={previosCommentRef} className={style.comment}>
         {h.comment}
       </h5>
-      <form className={style.form} id="form">
+      <form className={style.form} id="form" ref={formCommentRef}>
         <input
           value={comment}
           onChange={(e) => setComment(e.target.value)}
