@@ -78,7 +78,6 @@ const Card = ({
     });
 
     const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
-
     const formRef = eval(`form${titleCase}Ref`).current;
     const previousRef = eval(`previos${titleCase}Ref`).current;
 
@@ -110,20 +109,18 @@ const Card = ({
         </button>
       </div>
       {[{ label: "comment" }, { label: "workDistance" }].map((x, i) => {
-        let previousRef;
-        let formRef;
+        const titleCase = x.label.charAt(0).toUpperCase() + x.label.slice(1);
+        const formRef = eval(`form${titleCase}Ref`);
+        const previousRef = eval(`previos${titleCase}Ref`);
         let stateValue;
         let onChange;
+
         switch (x.label) {
           case "comment":
-            previousRef = previosCommentRef;
-            formRef = formCommentRef;
             stateValue = comment;
             onChange = (e: any) => setComment(e.target.value);
             break;
           case "workDistance":
-            previousRef = previosWorkDistanceRef;
-            formRef = formWorkDistanceRef;
             stateValue = workDistance;
             onChange = (e: any) => setWorkDistance(e.target.value);
             break;
