@@ -40,7 +40,8 @@ export default function Home() {
     // const data = await res.json();
     // alert("deleted");
   };
-  const handleOpenComment = async (id: number) => {
+  const handleOpenComment = async (id: number, e: any) => {
+    e.preventDefault();
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "block";
     const existingComment = document.getElementsByTagName("h5")[id].innerText;
@@ -124,7 +125,12 @@ export default function Home() {
                     </p>
                   </div>
                   <hr />
-                  <h5 className={style.comment}>{h.comment}</h5>
+                  <div className={style.comment_wrapper}>
+                    <h5 className={style.comment}>{h.comment}</h5>
+                    <button onClick={(e) => handleOpenComment(i, e)}>
+                      SHOW
+                    </button>
+                  </div>
                 </a>
                 <div className={style.button_wrapper}>
                   <button
@@ -136,7 +142,6 @@ export default function Home() {
                   <button onClick={() => handleClickJustNotPerfect(h.id)}>
                     Ga Ngiler Aja
                   </button>
-                  <button onClick={() => handleOpenComment(i)}>SHOW</button>
                 </div>
                 <form ref={exampleRef} className={style.form} id="form">
                   <input
