@@ -2,6 +2,7 @@ import React from "react";
 import style from "./page.module.css";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { House } from "@prisma/client";
 
 const Card = ({
   h,
@@ -9,7 +10,7 @@ const Card = ({
   formattedNumber,
   i,
 }: {
-  h: any;
+  h: House;
   checkUserLoggedIn: any;
   formattedNumber: any;
   i: number;
