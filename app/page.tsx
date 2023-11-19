@@ -43,6 +43,8 @@ export default function Home() {
   const handleOpenComment = async (id: number) => {
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "block";
+    const existingComment = document.getElementsByTagName("h5")[id].innerText;
+    x.children[0].value = existingComment;
   };
 
   const handleClickRevalidate = async () => {
@@ -113,7 +115,7 @@ export default function Home() {
                     </p>
                   </div>
                   <hr />
-                  <p className={style.title}>{h.comment}</p>
+                  <h5 className={style.comment}>{h.comment}</h5>
                 </a>
                 <button
                   onClick={() => handleClickDelete(h.id)}

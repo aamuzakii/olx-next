@@ -36,6 +36,12 @@
   font-size: 14px;
 }
 
+.comment {
+  font-weight: 400;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 .feature {
   color: var(--blackText);
   font-size: 14px;
