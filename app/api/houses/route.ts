@@ -18,6 +18,9 @@ export async function GET() {
 
   const houses = await prisma.house.findMany({
     where,
+    orderBy: {
+      id: "asc",
+    },
   });
   await prisma.$disconnect();
 
