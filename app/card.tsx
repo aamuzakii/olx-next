@@ -38,12 +38,12 @@ const Card = ({
   };
   const handleOpenComment = async (id: number, e: any) => {
     e.preventDefault();
-    const x = document.getElementsByTagName("form")[id];
-    x.style.display = "flex";
+    const x = formCommentRef.current;
+    x!.style.display = "flex";
     const existingCommentEl = previosCommentRef.current;
     existingCommentEl!.style.display = "none";
     const existingComment = existingCommentEl!.innerText;
-    x.children[0].value = existingComment;
+    x!.children[0].value = existingComment;
     setComment(existingComment);
   };
 
