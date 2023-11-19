@@ -37,7 +37,8 @@ const Card = ({
     e.preventDefault();
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "flex";
-    const existingComment = document.getElementsByTagName("h5")[id].innerText;
+    const existingCommentEl = document.getElementsByTagName("h5")[id];
+    const existingComment = existingCommentEl.innerText;
     x.children[0].value = existingComment;
     setComment(existingComment);
   };
