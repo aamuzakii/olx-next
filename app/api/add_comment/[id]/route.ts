@@ -13,7 +13,7 @@ export async function POST(
   const prisma = new PrismaClient();
 
   if (valueToJson.type) {
-    console.log("=======");
+    console.log("=======", valueToJson);
   } else {
     const updatedHouse = await prisma.house.update({
       where: {
