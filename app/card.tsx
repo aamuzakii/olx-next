@@ -40,9 +40,9 @@ const Card = ({
     e.preventDefault();
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "flex";
-    const existingCommentEl = document.getElementsByTagName("h5")[id];
-    existingCommentEl.style.display = "none";
-    const existingComment = existingCommentEl.innerText;
+    const existingCommentEl = previosCommentRef.current;
+    existingCommentEl!.style.display = "none";
+    const existingComment = existingCommentEl!.innerText;
     x.children[0].value = existingComment;
     setComment(existingComment);
   };
