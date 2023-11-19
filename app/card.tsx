@@ -82,8 +82,6 @@ const Card = ({
       },
       body: JSON.stringify({ comment, type: label, workDistance }),
     });
-    setComment("");
-    setWorkDistance("");
     switch (label) {
       case "comment":
         previosCommentRef.current!.style.display = "flex";
@@ -152,7 +150,7 @@ const Card = ({
               ref={previousRef}
               className={style.comment}
             >
-              {value || x.label}
+              {stateValue || x.label}
             </h5>
             <form className={style.form} id="form" ref={formRef}>
               <input
