@@ -72,23 +72,33 @@ const Card = ({
     }
   };
 
-  const submitComment = async (e: any, id: number) => {
+  const submitComment = async (e: any, id: number, label) => {
     e.preventDefault();
+
     const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ comment }),
+      body: JSON.stringify({ comment, type: label, workDistance }),
     });
     setComment("");
-    previosCommentRef.current!.style.display = "flex";
-    formCommentRef.current!.style.display = "none";
+    setWorkDistance("");
+    switch (label) {
+      case "comment":
+        previosCommentRef.current!.style.display = "flex";
+        formCommentRef.current!.style.display = "none";
+        break;
+      case "workDistance":
+        previosWorkDistanceRef.current!.style.display = "flex";
+        formWorkDistanceRef.current!.style.display = "none";
+        break;
+      default:
+        break;
+    }
 
     await checkUserLoggedIn();
   };
-
-  const myRef = useRef(null);
 
   return (
     <div className={style.kartu}>
