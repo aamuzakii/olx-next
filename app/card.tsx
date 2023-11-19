@@ -76,18 +76,27 @@ const Card = ({
       },
       body: JSON.stringify({ comment, type: label, workDistance }),
     });
-    switch (label) {
-      case "comment":
-        previosCommentRef.current!.style.display = "flex";
-        formCommentRef.current!.style.display = "none";
-        break;
-      case "workDistance":
-        previosWorkDistanceRef.current!.style.display = "flex";
-        formWorkDistanceRef.current!.style.display = "none";
-        break;
-      default:
-        break;
-    }
+
+    const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
+
+    const formRef = eval(`form${titleCase}Ref`).current;
+    const previousRef = eval(`previos${titleCase}Ref`).current;
+
+    previousRef!.style.display = "flex";
+    formRef!.style.display = "none";
+
+    // switch (label) {
+    //   case "comment":
+    //     previosCommentRef.current!.style.display = "flex";
+    //     formCommentRef.current!.style.display = "none";
+    //     break;
+    //   case "workDistance":
+    //     previosWorkDistanceRef.current!.style.display = "flex";
+    //     formWorkDistanceRef.current!.style.display = "none";
+    //     break;
+    //   default:
+    //     break;
+    // }
 
     await checkUserLoggedIn();
   };
