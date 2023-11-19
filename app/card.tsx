@@ -3,6 +3,7 @@ import style from "./page.module.css";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { House } from "@prisma/client";
+import _ from "lodash";
 
 const Card = ({
   h,
@@ -45,13 +46,14 @@ const Card = ({
     let x;
     let existingCommentEl;
 
+    const myVar = label.charAt(0).toUpperCase() + label.slice(1);
+    x = eval(`form${myVar}Ref`).current;
+
     switch (label) {
       case "comment":
-        x = formCommentRef.current;
         existingCommentEl = previosCommentRef.current;
         break;
       case "workDistance":
-        x = formWorkDistanceRef.current;
         existingCommentEl = previosWorkDistanceRef.current;
         break;
       default:
