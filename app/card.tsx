@@ -34,7 +34,7 @@ const Card = ({
   const handleOpenComment = async (id: number, e: any) => {
     e.preventDefault();
     const x = document.getElementsByTagName("form")[id];
-    x.style.display = "block";
+    x.style.display = "flex";
     const existingComment = document.getElementsByTagName("h5")[id].innerText;
     x.children[0].value = existingComment;
   };

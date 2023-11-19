@@ -68,6 +68,7 @@
 
 .form {
   display: none;
+  align-items: center;
 }
 
 .button_wrapper {
