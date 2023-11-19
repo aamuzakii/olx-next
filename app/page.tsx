@@ -111,7 +111,7 @@ export default function Home() {
                 checkUserLoggedIn={checkUserLoggedIn}
                 formattedNumber={formattedNumber}
                 i={i}
-                key={i}
+                key={h.id}
               />
             );
           })}
