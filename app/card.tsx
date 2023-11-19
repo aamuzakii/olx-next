@@ -16,6 +16,8 @@ const Card = ({
 }) => {
   const [comment, setComment] = useState("");
 
+  const previosCommentRef = useRef(null);
+
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
     const data = await res.json();
@@ -38,6 +40,7 @@ const Card = ({
     const x = document.getElementsByTagName("form")[id];
     x.style.display = "flex";
     const existingCommentEl = document.getElementsByTagName("h5")[id];
+    existingCommentEl.style.display = "none";
     const existingComment = existingCommentEl.innerText;
     x.children[0].value = existingComment;
     setComment(existingComment);
@@ -53,6 +56,8 @@ const Card = ({
       body: JSON.stringify({ comment }),
     });
     setComment("");
+    previosCommentRef.current!.style.display = "flex";
+
     await checkUserLoggedIn();
   };
 
@@ -80,7 +85,9 @@ const Card = ({
         </button>
       </div>
       <button onClick={(e) => handleOpenComment(i, e)}>SHOW</button>
-      <h5 className={style.comment}>{h.comment}</h5>
+      <h5 ref={previosCommentRef} className={style.comment}>
+        {h.comment}
+      </h5>
       <form className={style.form} id="form">
         <input
           value={comment}
