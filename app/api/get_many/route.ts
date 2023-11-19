@@ -25,8 +25,8 @@ export async function GET() {
     bogorKab,
     depok,
     tangsel,
-    tangerangKota,
-    bekasiKota,
+    // tangerangKota,
+    // bekasiKota,
   ];
 
   const compoundedHouses = [];

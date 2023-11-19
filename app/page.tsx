@@ -83,6 +83,15 @@ export default function Home() {
         <button onClick={handleClickRefetch}>Refetch</button>
         <button onClick={handleClickRevalidate}>Revalidate</button>
       </nav>
+      <section>
+        <ul>
+          <li>
+            Jarak max 23.3km ke Aruna ataupun Alodokter. Jangan lebih, karena
+            kalo WFO lu beneran tiap hari PP
+          </li>
+          <li>TK serius max 5km, itu ke fore udah cape cuy</li>
+        </ul>
+      </section>
       <main className={style.main}>
         <div className={style.grid}>
           {list.map((h, i) => {
