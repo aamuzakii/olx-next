@@ -72,7 +72,7 @@ const Card = ({
     }
   };
 
-  const submitComment = async (e: any, id: number, label) => {
+  const submitComment = async (e: any, id: number, label: string) => {
     e.preventDefault();
 
     const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
@@ -125,7 +125,7 @@ const Card = ({
         return (
           <>
             <h5
-              onClick={(e) => handleOpenComment(i, e, label)}
+              onClick={(e) => handleOpenComment(i, e, x.label)}
               ref={previosCommentRef}
               className={style.comment}
             >
@@ -138,7 +138,9 @@ const Card = ({
                 placeholder={x.label}
                 name={x.label}
               />
-              <button onClick={(e) => submitComment(e, h.id)}>Submit</button>
+              <button onClick={(e) => submitComment(e, h.id, x.label)}>
+                Submit
+              </button>
             </form>
           </>
         );
