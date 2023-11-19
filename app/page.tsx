@@ -3,6 +3,7 @@ import Image from "next/image";
 import style from "./page.module.css";
 import { useEffect, useRef, useState } from "react";
 import { House } from "@prisma/client";
+import Card from "./card";
 
 export default function Home() {
   const [list, setList] = useState<House[]>([]);
@@ -39,13 +40,6 @@ export default function Home() {
 
     // const data = await res.json();
     // alert("deleted");
-  };
-  const handleOpenComment = async (id: number, e: any) => {
-    e.preventDefault();
-    const x = document.getElementsByTagName("form")[id];
-    x.style.display = "block";
-    const existingComment = document.getElementsByTagName("h5")[id].innerText;
-    x.children[0].value = existingComment;
   };
 
   const handleClickRevalidate = async () => {
@@ -105,56 +99,13 @@ export default function Home() {
             }
 
             return (
-              <div className={style.kartu}>
-                <a href={h.url} target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={h.imageUrl || ""}
-                    alt=""
-                    width={242}
-                    height={153}
-                  ></Image>
-                  <p className={style.harga}>{formattedNumber}</p>
-                  <p className={style.feature}>{h.feature}</p>
-                  <p className={style.title}>{h.title}</p>
-                  <div className={style.bottom}>
-                    <p className={style.published}>
-                      {h.publishedStr?.toUpperCase()}
-                    </p>
-                    <p className={style.published}>
-                      {h.prefecture?.toUpperCase()}
-                    </p>
-                  </div>
-                  <hr />
-                  <div className={style.comment_wrapper}>
-                    <h5 className={style.comment}>{h.comment}</h5>
-                    <button onClick={(e) => handleOpenComment(i, e)}>
-                      SHOW
-                    </button>
-                  </div>
-                </a>
-                <div className={style.button_wrapper}>
-                  <button
-                    onClick={() => handleClickDelete(h.id)}
-                    className={style.red}
-                  >
-                    DELETE
-                  </button>
-                  <button onClick={() => handleClickJustNotPerfect(h.id)}>
-                    Ga Ngiler Aja
-                  </button>
-                </div>
-                <form ref={exampleRef} className={style.form} id="form">
-                  <input
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                    placeholder="comment"
-                    name="comment"
-                  />
-                  <button onClick={(e) => submitComment(e, h.id)}>
-                    Submit
-                  </button>
-                </form>
-              </div>
+              <Card
+                h={h}
+                checkUserLoggedIn={checkUserLoggedIn}
+                formattedNumber={formattedNumber}
+                i={i}
+                key={i}
+              />
             );
           })}
         </div>
