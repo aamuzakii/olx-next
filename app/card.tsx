@@ -86,9 +86,12 @@ const Card = ({
           Ga Ngiler Aja
         </button>
       </div>
-      <button onClick={(e) => handleOpenComment(i, e)}>SHOW</button>
-      <h5 ref={previosCommentRef} className={style.comment}>
-        {h.comment}
+      <h5
+        onClick={(e) => handleOpenComment(i, e)}
+        ref={previosCommentRef}
+        className={style.comment}
+      >
+        {h.comment || "comment"}
       </h5>
       <form className={style.form} id="form" ref={formCommentRef}>
         <input
