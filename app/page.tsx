@@ -125,7 +125,7 @@ export default function Home() {
                     DELETE
                   </button>
                   <button onClick={() => handleClickJustNotPerfect(h.id)}>
-                    Acceptable MVP, Not Perfect
+                    Ga Ngiler Aja
                   </button>
                   <button onClick={() => handleOpenComment(i)}>SHOW</button>
                 </div>
