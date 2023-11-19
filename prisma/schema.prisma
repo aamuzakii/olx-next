@@ -28,6 +28,7 @@ model House {
   noNoise        String?
   flood          String?
   gateOrCanopy   String?
+  dividable      String?
   color          String?
   standard       String?
   deleted        Boolean?  @default(false)
