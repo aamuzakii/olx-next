@@ -84,7 +84,13 @@ export default function Home() {
             Jarak max 23.3km ke Aruna ataupun Alodokter. Jangan lebih, karena
             kalo WFO lu beneran tiap hari PP
           </li>
-          <li>TK serius max 5km, itu ke fore udah cape cuy</li>
+          <li>
+            Kereta itu no karena kereta harus lanjut gojek which is minimal 15k.
+            Belum parkir di stasiun yg juga harganya mirip parkir di aruna{" "}
+          </li>
+          <li>
+            TK serius max 5km, itu ke fore udah cape cuy. Bahkan kalau bisa 3 km
+          </li>
         </ul>
       </section>
       <main className={style.main}>
