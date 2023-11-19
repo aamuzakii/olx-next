@@ -145,7 +145,7 @@ const Card = ({
             </h5>
             <form className={style.form} id="form" ref={formRef}>
               <input
-                value={stateValue}
+                value={stateValue as string}
                 onChange={onChange}
                 placeholder={x.label}
                 name={x.label}
