@@ -12,16 +12,19 @@ export async function POST(
 
   const prisma = new PrismaClient();
 
-  const updatedHouse = await prisma.house.update({
-    where: {
-      id,
-    },
-    data: {
-      comment: valueToJson.comment, // Assuming the comment is in the request body
-    },
-  });
+  if (valueToJson.type) {
+  } else {
+    const updatedHouse = await prisma.house.update({
+      where: {
+        id,
+      },
+      data: {
+        comment: valueToJson.comment, // Assuming the comment is in the request body
+      },
+    });
+  }
 
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: updatedHouse.color });
+  return NextResponse.json({ data: null });
 }
