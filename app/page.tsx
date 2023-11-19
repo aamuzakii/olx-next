@@ -58,7 +58,7 @@ export default function Home() {
     alert(`got ${data.data.count}`);
   };
 
-  const [comment, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
   const submitComment = async (e: any, id: number) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ export default function Home() {
     });
     // const x = document.getElementsByTagName("form")[id];
     // x.style.display = "none";
-    setEmail("");
+    setComment("");
     await checkUserLoggedIn();
   };
 
@@ -128,7 +128,7 @@ export default function Home() {
                 <form ref={exampleRef} className={style.form} id="form">
                   <input
                     value={comment}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setComment(e.target.value)}
                     placeholder="comment"
                     name="comment"
                   />
