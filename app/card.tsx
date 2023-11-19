@@ -112,16 +112,14 @@ const Card = ({
         const titleCase = x.label.charAt(0).toUpperCase() + x.label.slice(1);
         const formRef = eval(`form${titleCase}Ref`);
         const previousRef = eval(`previos${titleCase}Ref`);
-        let stateValue;
+        let stateValue = eval(x.label);
         let onChange;
 
         switch (x.label) {
           case "comment":
-            stateValue = comment;
             onChange = (e: any) => setComment(e.target.value);
             break;
           case "workDistance":
-            stateValue = workDistance;
             onChange = (e: any) => setWorkDistance(e.target.value);
             break;
           default:

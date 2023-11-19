@@ -91,6 +91,7 @@ export default function Home() {
           <li>
             TK serius max 5km, itu ke fore udah cape cuy. Bahkan kalau bisa 3 km
           </li>
+          <li>Banjir paling cek nya last ya</li>
         </ul>
       </section>
       <main className={style.main}>
