@@ -48,17 +48,8 @@ const Card = ({
 
     const myVar = label.charAt(0).toUpperCase() + label.slice(1);
     x = eval(`form${myVar}Ref`).current;
+    existingCommentEl = eval(`previos${myVar}Ref`).current;
 
-    switch (label) {
-      case "comment":
-        existingCommentEl = previosCommentRef.current;
-        break;
-      case "workDistance":
-        existingCommentEl = previosWorkDistanceRef.current;
-        break;
-      default:
-        break;
-    }
     x!.style.display = "flex";
     existingCommentEl!.style.display = "none";
     const existingComment = existingCommentEl!.innerText;
