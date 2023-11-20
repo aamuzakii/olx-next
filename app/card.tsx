@@ -33,8 +33,8 @@ const Card = ({
   const formDividableRef = useRef<HTMLFormElement | null>(null);
   const previosWartegRef = useRef<HTMLHeadingElement | null>(null);
   const formWartegRef = useRef<HTMLFormElement | null>(null);
-  const previosSchoolDistance = useRef<HTMLHeadingElement | null>(null);
-  const formSchoolDistance = useRef<HTMLFormElement | null>(null);
+  const previosSchoolDistanceRef = useRef<HTMLHeadingElement | null>(null);
+  const formSchoolDistanceRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
