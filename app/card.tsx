@@ -68,7 +68,12 @@ const Card = ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ comment, type: label, workDistance }),
+      body: JSON.stringify({
+        comment,
+        type: label,
+        workDistance,
+        gateOrCanopy,
+      }),
     });
 
     const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
