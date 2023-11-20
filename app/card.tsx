@@ -21,6 +21,7 @@ const Card = ({
   const [gateOrCanopy, setGateOrCanopy] = useState(h.gateOrCanopy);
   const [dividable, setDividable] = useState(h.dividable);
   const [warteg, setWarteg] = useState(h.warteg);
+  const [schoolDistance, setSchoolDistance] = useState(h.schoolDistance);
 
   const previosCommentRef = useRef<HTMLHeadingElement | null>(null);
   const formCommentRef = useRef<HTMLFormElement | null>(null);
@@ -32,6 +33,8 @@ const Card = ({
   const formDividableRef = useRef<HTMLFormElement | null>(null);
   const previosWartegRef = useRef<HTMLHeadingElement | null>(null);
   const formWartegRef = useRef<HTMLFormElement | null>(null);
+  const previosSchoolDistance = useRef<HTMLHeadingElement | null>(null);
+  const formSchoolDistance = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
@@ -81,6 +84,7 @@ const Card = ({
         gateOrCanopy,
         dividable,
         warteg,
+        schoolDistance,
       }),
     });
 
@@ -125,6 +129,7 @@ const Card = ({
         { label: "gateOrCanopy" },
         { label: "dividable" },
         { label: "warteg" },
+        { label: "schoolDistance" },
       ].map((x, i) => {
         const titleCase = x.label.charAt(0).toUpperCase() + x.label.slice(1);
         const formRef = eval(`form${titleCase}Ref`);
