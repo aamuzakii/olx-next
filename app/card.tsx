@@ -123,12 +123,20 @@ const Card = ({
         let stateValue = eval(x.label);
         let onChange = (e: any) => eval(`set${titleCase}`)(e.target.value);
 
+        let stringClass;
+
+        if (!stateValue) {
+          stringClass = style.empty_comment;
+        } else {
+          stringClass = style.comment;
+        }
+
         return (
           <React.Fragment key={i}>
             <h5
               onClick={(e) => handleOpenComment(i, e, x.label)}
               ref={previousRef}
-              className={style.comment}
+              className={stringClass}
             >
               {stateValue || x.label}
             </h5>
