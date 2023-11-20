@@ -42,6 +42,13 @@
   font-size: 14px;
 }
 
+.blue_comment {
+  color: blue;
+  font-weight: 500;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 .empty_comment {
   color: var(--blackSecondaryText);
   font-weight: 400;

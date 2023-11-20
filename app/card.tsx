@@ -128,7 +128,11 @@ const Card = ({
         if (!stateValue) {
           stringClass = style.empty_comment;
         } else {
-          stringClass = style.comment;
+          if (stateValue === "both gate + canopy") {
+            stringClass = style.blue_comment;
+          } else {
+            stringClass = style.comment;
+          }
         }
 
         return (
