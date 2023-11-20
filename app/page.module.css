@@ -70,6 +70,11 @@
   color: var(--blackSecondaryText);
 }
 
+.published_red {
+  font-size: 10px;
+  color: red;
+}
+
 .bottom {
   margin: 10px 0;
   display: flex;

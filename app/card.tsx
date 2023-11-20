@@ -90,6 +90,10 @@ const Card = ({
     await checkUserLoggedIn();
   };
 
+  let publishedStyle = h.publishedStr?.toUpperCase().includes("NOV")
+    ? style.published
+    : style.published_red;
+
   return (
     <div className={style.kartu}>
       <a href={h.url} target="_blank" rel="noopener noreferrer">
@@ -98,7 +102,7 @@ const Card = ({
         <p className={style.feature}>{h.feature}</p>
         <p className={style.title}>{h.title}</p>
         <div className={style.bottom}>
-          <p className={style.published}>{h.publishedStr?.toUpperCase()}</p>
+          <p className={publishedStyle}>{h.publishedStr?.toUpperCase()}</p>
           <p className={style.published}>{h.prefecture?.toUpperCase()}</p>
         </div>
         <hr />
