@@ -43,17 +43,17 @@ const Card = ({
   };
   const handleOpenComment = async (id: number, e: any, label: string) => {
     e.preventDefault();
-    let x;
+    let formRef;
     let existingCommentEl;
 
     const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
-    x = eval(`form${titleCase}Ref`).current;
+    formRef = eval(`form${titleCase}Ref`).current;
     existingCommentEl = eval(`previos${titleCase}Ref`).current;
 
-    x!.style.display = "flex";
+    formRef!.style.display = "flex";
     existingCommentEl!.style.display = "none";
     const existingComment = existingCommentEl!.innerText;
-    x!.children[0].value = existingComment;
+    formRef!.children[0].value = existingComment;
     eval(`set${titleCase}`)(existingComment);
   };
 
