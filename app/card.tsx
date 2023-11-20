@@ -19,6 +19,7 @@ const Card = ({
   const [comment, setComment] = useState(h.comment);
   const [workDistance, setWorkDistance] = useState(h.workDistance);
   const [gateOrCanopy, setGateOrCanopy] = useState(h.gateOrCanopy);
+  const [dividable, setDividable] = useState(h.dividable);
 
   const previosCommentRef = useRef<HTMLHeadingElement | null>(null);
   const formCommentRef = useRef<HTMLFormElement | null>(null);
@@ -26,6 +27,8 @@ const Card = ({
   const formWorkDistanceRef = useRef<HTMLFormElement | null>(null);
   const previosGateOrCanopyRef = useRef<HTMLHeadingElement | null>(null);
   const formGateOrCanopyRef = useRef<HTMLFormElement | null>(null);
+  const previosDividableRef = useRef<HTMLHeadingElement | null>(null);
+  const formDividableRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`http://localhost:3000/api/del/${id}`);
@@ -73,6 +76,7 @@ const Card = ({
         type: label,
         workDistance,
         gateOrCanopy,
+        dividable,
       }),
     });
 
@@ -111,6 +115,7 @@ const Card = ({
         { label: "comment" },
         { label: "workDistance" },
         { label: "gateOrCanopy" },
+        { label: "dividable" },
       ].map((x, i) => {
         const titleCase = x.label.charAt(0).toUpperCase() + x.label.slice(1);
         const formRef = eval(`form${titleCase}Ref`);
