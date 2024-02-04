@@ -5,13 +5,10 @@ import { maxBudget } from "@/app/helper/general";
 
 export const where = {
   deleted: false || null,
-  // price: {
-  //   lte: maxBudget,
-  // },
-  // // prefecture: "Cilodong, Depok Kota",
-  // standard: {
-  //   equals: null,
-  // },
+  candidates: "Less than 5" || "5 to 10",
+  country: {
+    notIn: ["UnitedKingdom", "UnitedStates"],
+  },
 };
 
 export async function GET() {
