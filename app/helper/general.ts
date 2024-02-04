@@ -1,1 +1,1 @@
-export const maxBudget = 25 * 1000 * 1000;
+export const maxBudget = 23 * 1000 * 1000;

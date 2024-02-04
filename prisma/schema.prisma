@@ -33,3 +33,11 @@ model House {
   standard       String?
   deleted        Boolean?  @default(false)
 }
+
+model Job {
+  id         Int     @id @default(autoincrement())
+  url        String  @unique
+  stack      String?
+  country    String?
+  candidates String?
+}
