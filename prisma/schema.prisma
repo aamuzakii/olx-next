@@ -42,4 +42,5 @@ model Job {
   country     String?
   candidates  String?
   description String?
+  date        String?
 }
