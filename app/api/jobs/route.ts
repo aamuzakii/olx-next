@@ -63,12 +63,13 @@ export async function GET() {
     country = country.replace(/\s/g, "");
 
     const newData = {
-      url: desc,
-      title: "",
+      url: link,
+      title,
       stack: JSON.stringify(skillCollection),
       country,
       candidates: applier,
       description: desc,
+      date,
     };
 
     arrOfJobs.push(newData);
