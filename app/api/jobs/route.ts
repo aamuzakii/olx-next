@@ -19,11 +19,20 @@ export async function GET() {
 
   Array.from(jobTileListElement.children).forEach((section: any, i) => {
     const date =
-      section.children[0].children[1].children[0].children[0].innerHTML;
-    const title = section.children[0].children[1].children[1].textContent;
-    const link = section.children[0].children[1].children[1].children[0].href;
+      section.children[0].children[1].children[0].children[0].innerHTML.replace(
+        /\s+/g,
+        " "
+      );
+    const title =
+      section.children[0].children[1].children[1].textContent.replace(
+        /\s+/g,
+        " "
+      );
+    const link = section.children[0].children[1].children[1].children[0].href
+      .replace(/\s+/g, " ")
+      .split("/")[2];
 
-    console.log(date, title, link);
+    console.log(link);
     console.log("==============");
 
     const content = section.children[1];
