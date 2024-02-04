@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "../page.module.css";
 import Card from "../card";
 
@@ -8,6 +8,18 @@ const page = () => {
     price: string;
   }
 
+  const [list, setList] = useState([]);
+
+  const checkUserLoggedIn = async () => {
+    const res = await fetch("http://localhost:3000/api/jobs");
+
+    const data = await res.json();
+    setList(data.data);
+  };
+
+  useEffect(() => {
+    checkUserLoggedIn();
+  }, []);
   return (
     <>
       <nav>
