@@ -53,20 +53,19 @@ const page = () => {
 
             const stacks = JSON.parse(h.stack);
             return (
-              <div onClick={() => {}}>
-                <h4>{h.title}</h4>
-                <p>{h.country}</p>
+              <a href={h.url}>
                 <p>{h.date}</p>
+                <h4>{h.title}</h4>
                 <p>{h.description}</p>
                 <ul>
                   {stacks.map((s: string) => {
                     return <li>{s}</li>;
                   })}
                 </ul>
-                <p>{h.url}</p>
+                <p>{h.country}</p>
                 <p>Proposals: {h.candidates}</p>
                 <hr />
-              </div>
+              </a>
             );
           })}
         </div>
