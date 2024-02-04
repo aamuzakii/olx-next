@@ -5,8 +5,6 @@ import { exec } from "child_process";
 export async function GET() {
   const prisma = new PrismaClient();
 
-  console.log(123);
-
   const jsdom = require("jsdom");
   const fs = require("fs");
   const { JSDOM } = jsdom;
@@ -20,7 +18,14 @@ export async function GET() {
   const arrOfJobs: any[] = [];
 
   Array.from(jobTileListElement.children).forEach((section: any, i) => {
-    const title = section.children[0];
+    const date =
+      section.children[0].children[1].children[0].children[0].innerHTML;
+    const title = section.children[0].children[1].children[1].textContent;
+    const link = section.children[0].children[1].children[1].children[0].href;
+
+    console.log(date, title, link);
+    console.log("==============");
+
     const content = section.children[1];
 
     const fee = content.children[0];
@@ -36,7 +41,6 @@ export async function GET() {
     const skillCollection: string[] = [];
 
     Array.from(skill).forEach((element: any) => {
-      console.log(element.textContent);
       skillCollection.push(element.textContent);
     });
 
@@ -51,9 +55,11 @@ export async function GET() {
 
     const newData = {
       url: desc,
+      title: "",
       stack: JSON.stringify(skillCollection),
       country,
       candidates: applier,
+      description: desc,
     };
 
     arrOfJobs.push(newData);
