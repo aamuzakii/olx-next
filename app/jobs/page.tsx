@@ -3,12 +3,23 @@ import React, { useEffect, useRef, useState } from "react";
 import style from "../page.module.css";
 import Card from "../card";
 
+interface IJob {
+  id: number;
+  url: string;
+  title: string;
+  stack: string;
+  country: string;
+  candidates: string;
+  description: string;
+  date: string;
+}
+
 const page = () => {
   interface IFoo {
     price: string;
   }
 
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<IJob[]>([]);
 
   const checkUserLoggedIn = async () => {
     const res = await fetch("http://localhost:3000/api/jobs");
@@ -37,9 +48,26 @@ const page = () => {
       </section>
       <main className={style.main}>
         <div className={style.grid}>
-          {[].map((h, i) => {
+          {list.map((h, i) => {
             let formattedNumber = "";
-            return <h1></h1>;
+
+            const stacks = JSON.parse(h.stack);
+            return (
+              <div onClick={() => {}}>
+                <h4>{h.title}</h4>
+                <p>{h.country}</p>
+                <p>{h.date}</p>
+                <p>{h.description}</p>
+                <ul>
+                  {stacks.map((s: string) => {
+                    return <li>{s}</li>;
+                  })}
+                </ul>
+                <p>{h.url}</p>
+                <p>Proposals: {h.candidates}</p>
+                <hr />
+              </div>
+            );
           })}
         </div>
       </main>

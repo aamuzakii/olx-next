@@ -17,8 +17,8 @@ export const where = {
 export async function GET() {
   const prisma = new PrismaClient();
 
-  const houses = await prisma.house.findMany({
-    where,
+  const houses = await prisma.job.findMany({
+    // where,
     orderBy: {
       id: "asc",
     },
