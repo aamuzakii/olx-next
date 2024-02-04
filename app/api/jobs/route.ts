@@ -5,13 +5,13 @@ import { maxBudget } from "@/app/helper/general";
 
 export const where = {
   deleted: false,
-  price: {
-    lte: maxBudget,
-  },
-  // prefecture: "Cilodong, Depok Kota",
-  standard: {
-    equals: null,
-  },
+  // price: {
+  //   lte: maxBudget,
+  // },
+  // // prefecture: "Cilodong, Depok Kota",
+  // standard: {
+  //   equals: null,
+  // },
 };
 
 export async function GET() {

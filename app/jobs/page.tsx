@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import style from "../page.module.css";
+import style from "./page.module.css";
 import Card from "../card";
 
 interface IJob {
@@ -53,10 +53,10 @@ const page = () => {
 
             const stacks = JSON.parse(h.stack);
             return (
-              <a href={h.url}>
+              <a href={h.url} className={style.card}>
                 <p>{h.date}</p>
-                <h4>{h.title}</h4>
-                <p>{h.description}</p>
+                <h4 className={style.title}>{h.title}</h4>
+                {/* <p>{h.description}</p> */}
                 <ul>
                   {stacks.map((s: string) => {
                     return <li>{s}</li>;
