@@ -23,6 +23,9 @@ export async function GET() {
         /\s+/g,
         " "
       );
+
+    console.log(section.children[0].children[1].innerHTML);
+
     const title =
       section.children[0].children[1].children[1].textContent.replace(
         /\s+/g,

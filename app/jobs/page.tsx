@@ -28,6 +28,13 @@ const page = () => {
     setList(data.data);
   };
 
+  const fetchNew = async () => {
+    const res = await fetch("http://localhost:3000/api/fetch-jobs");
+
+    const data = await res.json();
+    setList(data.data);
+  };
+
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
@@ -40,7 +47,13 @@ const page = () => {
   return (
     <>
       <nav>
-        <button onClick={() => {}}>Refetch</button>
+        <button
+          onClick={() => {
+            fetchNew();
+          }}
+        >
+          Refetch
+        </button>
         <button onClick={() => {}}>Revalidate</button>
       </nav>
       <section>
