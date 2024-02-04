@@ -35,9 +35,11 @@ model House {
 }
 
 model Job {
-  id         Int     @id @default(autoincrement())
-  url        String  @unique
-  stack      String?
-  country    String?
-  candidates String?
+  id          Int     @id @default(autoincrement())
+  url         String  @unique
+  title       String  @default("")
+  stack       String?
+  country     String?
+  candidates  String?
+  description String?
 }
