@@ -31,6 +31,12 @@ const page = () => {
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
+
+  const handleClickDelete = async (id: number) => {
+    const res = await fetch(`http://localhost:3000/api/del-job/${id}`);
+    const data = await res.json();
+    await checkUserLoggedIn();
+  };
   return (
     <>
       <nav>
@@ -53,19 +59,20 @@ const page = () => {
 
             const stacks = JSON.parse(h.stack);
             return (
-              <a href={h.url} className={style.card}>
+              <div className={style.card} key={h.id}>
                 <p>{h.date}</p>
                 <h4 className={style.title}>{h.title}</h4>
                 {/* <p>{h.description}</p> */}
                 <ul>
-                  {stacks.map((s: string) => {
-                    return <li>{s}</li>;
+                  {stacks.map((s: string, i: number) => {
+                    return <li key={i}>{s}</li>;
                   })}
                 </ul>
                 <p>{h.country}</p>
                 <p>Proposals: {h.candidates}</p>
-                <hr />
-              </a>
+                <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
+                <a href={h.url}>DETAIL</a>
+              </div>
             );
           })}
         </div>

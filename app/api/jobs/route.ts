@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { maxBudget } from "@/app/helper/general";
 
 export const where = {
-  deleted: false,
+  deleted: false || null,
   // price: {
   //   lte: maxBudget,
   // },
@@ -18,7 +18,7 @@ export async function GET() {
   const prisma = new PrismaClient();
 
   const houses = await prisma.job.findMany({
-    // where,
+    where,
     orderBy: {
       id: "asc",
     },
