@@ -11,14 +11,12 @@
 }
 
 .card {
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 
 .grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .harga {

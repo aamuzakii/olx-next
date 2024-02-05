@@ -7,7 +7,7 @@ export const where = {
   deleted: false || null,
   candidates: "Less than 5" || "5 to 10",
   country: {
-    notIn: ["UnitedKingdom", "UnitedStates"],
+    notIn: ["UnitedKingdom", "UnitedStates", "India"],
   },
 };
 

@@ -22,14 +22,14 @@ const page = () => {
   const [list, setList] = useState<IJob[]>([]);
 
   const checkUserLoggedIn = async () => {
-    const res = await fetch("http://localhost:3000/api/jobs");
+    const res = await fetch("http://localhost:3001/api/jobs");
 
     const data = await res.json();
     setList(data.data);
   };
 
   const fetchNew = async () => {
-    const res = await fetch("http://localhost:3000/api/fetch-jobs");
+    const res = await fetch("http://localhost:3001/api/fetch-jobs");
 
     const data = await res.json();
     setList(data.data);
@@ -40,10 +40,16 @@ const page = () => {
   }, []);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/del-job/${id}`);
+    const res = await fetch(`http://localhost:3001/api/del-job/${id}`);
     const data = await res.json();
     await checkUserLoggedIn();
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [dialogText, setDialogText] = useState("");
+
+  const openDialog = () => setIsOpen(true);
+  const closeDialog = () => setIsOpen(false);
   return (
     <>
       <nav>
@@ -58,13 +64,14 @@ const page = () => {
       </nav>
       <section>
         <ul>
-          <li>
-            Jarak max 23.3km ke Aruna ataupun Alodokter. Jangan lebih, karena
-            kalo WFO lu beneran tiap hari PP
-          </li>
           <li>Banjir paling cek nya last ya</li>
         </ul>
       </section>
+      <dialog open={isOpen} onClose={closeDialog}>
+        <h2>Dialog Title</h2>
+        <p>{dialogText}</p>
+        <button onClick={closeDialog}>Close</button>
+      </dialog>
       <main className={style.main}>
         <div className={style.grid}>
           {list.map((h, i) => {
@@ -84,7 +91,17 @@ const page = () => {
                 <p>{h.country}</p>
                 <p>Proposals: {h.candidates}</p>
                 <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
-                <a href={h.url}>DETAIL</a>
+                <a href={h.url} target="_blank">
+                  DETAIL
+                </a>
+                <button
+                  onClick={() => {
+                    openDialog();
+                    setDialogText(h.description);
+                  }}
+                >
+                  Open Dialog
+                </button>
               </div>
             );
           })}
