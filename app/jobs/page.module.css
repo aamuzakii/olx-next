@@ -15,6 +15,11 @@
   border-bottom: 1px solid black;
 }
 
+.wide {
+  width: 10vw;
+  height: 10px;
+}
+
 
 .grid {
 }
@@ -107,4 +112,9 @@
 }
 .title {
   font-size: 20px; 
+}
+
+.interaction {
+  display: flex;
+  align-items: center;
 }

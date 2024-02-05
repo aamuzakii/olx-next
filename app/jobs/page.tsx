@@ -92,22 +92,25 @@ const page = () => {
                 </ul>
                 <p>{h.country}</p>
                 <p>Proposals: {h.candidates}</p>
-                <button onClick={() => handleClickDelete(h.id)}>
-                  <Trash />
-                </button>
+                <div className={style.interaction}>
+                  <button onClick={() => handleClickDelete(h.id)}>
+                    <Trash />
+                  </button>
 
-                <button
-                  onClick={() => {
-                    openDialog();
-                    setDialogText(h.description);
-                  }}
-                >
-                  Open Dialog
-                </button>
+                  <button
+                    onClick={() => {
+                      openDialog();
+                      setDialogText(h.description);
+                    }}
+                  >
+                    Open Dialog
+                  </button>
+                  <div className={style.wide}></div>
 
-                <a href={h.url} target="_blank">
-                  <Chevron />
-                </a>
+                  <a href={h.url} target="_blank">
+                    <Chevron />
+                  </a>
+                </div>
               </div>
             );
           })}
