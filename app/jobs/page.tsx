@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import style from "./page.module.css";
 import Card from "../card";
 import Trash from "../atom/Trash";
+import Chevron from "../atom/Chevron";
 
 interface IJob {
   id: number;
@@ -94,9 +95,7 @@ const page = () => {
                 <button onClick={() => handleClickDelete(h.id)}>
                   <Trash />
                 </button>
-                <a href={h.url} target="_blank">
-                  DETAIL
-                </a>
+
                 <button
                   onClick={() => {
                     openDialog();
@@ -105,6 +104,10 @@ const page = () => {
                 >
                   Open Dialog
                 </button>
+
+                <a href={h.url} target="_blank">
+                  <Chevron />
+                </a>
               </div>
             );
           })}
