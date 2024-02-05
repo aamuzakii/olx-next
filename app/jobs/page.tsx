@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import style from "./page.module.css";
 import Card from "../card";
+import Trash from "../atom/Trash";
 
 interface IJob {
   id: number;
@@ -90,7 +91,9 @@ const page = () => {
                 </ul>
                 <p>{h.country}</p>
                 <p>Proposals: {h.candidates}</p>
-                <button onClick={() => handleClickDelete(h.id)}>DELETE</button>
+                <button onClick={() => handleClickDelete(h.id)}>
+                  <Trash />
+                </button>
                 <a href={h.url} target="_blank">
                   DETAIL
                 </a>
