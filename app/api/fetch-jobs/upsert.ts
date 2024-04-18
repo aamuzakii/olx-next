@@ -1,7 +1,9 @@
+import { Job } from "@prisma/client";
 const { PrismaClient } = require("@prisma/client");
+
 const prisma = new PrismaClient();
 
-const arrOfJobs: any[] = [
+const arrOfJobs: Job[] = [
   // your job objects here
 ];
 
@@ -13,6 +15,7 @@ const upsertJobs = async () => {
           /* define the unique criteria for your job, usually an ID or unique constraint */
         },
         update: {
+          candidates: job.candidates
           /* the data you want to update if the record already exists */
         },
         create: job, // the data you want to insert if the record doesn't exist

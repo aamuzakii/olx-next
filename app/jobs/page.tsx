@@ -4,6 +4,7 @@ import style from "./page.module.css";
 import Card from "../card";
 import Trash from "../atom/Trash";
 import Chevron from "../atom/Chevron";
+import { countries } from "./country";
 
 interface IJob {
   id: number;
@@ -65,11 +66,6 @@ const page = () => {
         </button>
         <button onClick={() => {}}>Revalidate</button>
       </nav>
-      <section>
-        <ul>
-          <li>Banjir paling cek nya last ya</li>
-        </ul>
-      </section>
       <dialog open={isOpen} onClose={closeDialog}>
         <h2>Dialog Title</h2>
         <p>{dialogText}</p>
@@ -93,6 +89,16 @@ const page = () => {
                   })}
                 </ul>
                 <p>{h.country}</p>
+                <div
+                  style={{
+                    padding: 10,
+                    background: "white",
+                    fontSize: 30,
+                    width: 40,
+                  }}
+                >
+                  {countries[h.country]?.flag}
+                </div>
                 <p>Proposals: {h.candidates}</p>
                 <div className={style.interaction}>
                   <button onClick={() => handleClickDelete(h.id)}>

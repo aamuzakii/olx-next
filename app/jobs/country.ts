@@ -1,0 +1,1011 @@
+type Country = {
+  flag: string;
+  countryCode: string;
+};
+
+type Countries = {
+  [countryCode: string]: Country; // Indexed access type
+};
+
+export const countries: Countries = {
+  Moldova: {
+    flag: "🇲🇩",
+    countryCode: "MD",
+  },
+  "United States": {
+    flag: "🇺🇸",
+    countryCode: "US",
+  },
+  Mayotte: {
+    flag: "🇾🇹",
+    countryCode: "YT",
+  },
+  Nauru: {
+    flag: "🇳🇷",
+    countryCode: "NR",
+  },
+  Mozambique: {
+    flag: "🇲🇿",
+    countryCode: "MZ",
+  },
+  Brazil: {
+    flag: "🇧🇷",
+    countryCode: "BR",
+  },
+  "Cape Verde": {
+    flag: "🇨🇻",
+    countryCode: "CV",
+  },
+  "Equatorial Guinea": {
+    flag: "🇬🇶",
+    countryCode: "GQ",
+  },
+  Albania: {
+    flag: "🇦🇱",
+    countryCode: "AL",
+  },
+  "United States Virgin Islands": {
+    flag: "🇻🇮",
+    countryCode: "VI",
+  },
+  Niue: {
+    flag: "🇳🇺",
+    countryCode: "NU",
+  },
+  Palau: {
+    flag: "🇵🇼",
+    countryCode: "PW",
+  },
+  Nigeria: {
+    flag: "🇳🇬",
+    countryCode: "NG",
+  },
+  "British Virgin Islands": {
+    flag: "🇻🇬",
+    countryCode: "VG",
+  },
+  Gambia: {
+    flag: "🇬🇲",
+    countryCode: "GM",
+  },
+  Somalia: {
+    flag: "🇸🇴",
+    countryCode: "SO",
+  },
+  Yemen: {
+    flag: "🇾🇪",
+    countryCode: "YE",
+  },
+  Malaysia: {
+    flag: "🇲🇾",
+    countryCode: "MY",
+  },
+  Dominica: {
+    flag: "🇩🇲",
+    countryCode: "DM",
+  },
+  "United Kingdom": {
+    flag: "🇬🇧",
+    countryCode: "GB",
+  },
+  Madagascar: {
+    flag: "🇲🇬",
+    countryCode: "MG",
+  },
+  "Western Sahara": {
+    flag: "🇪🇭",
+    countryCode: "EH",
+  },
+  Cyprus: {
+    flag: "🇨🇾",
+    countryCode: "CY",
+  },
+  "Antigua and Barbuda": {
+    flag: "🇦🇬",
+    countryCode: "AG",
+  },
+  Ireland: {
+    flag: "🇮🇪",
+    countryCode: "IE",
+  },
+  Paraguay: {
+    flag: "🇵🇾",
+    countryCode: "PY",
+  },
+  "Sri Lanka": {
+    flag: "🇱🇰",
+    countryCode: "LK",
+  },
+  "South Africa": {
+    flag: "🇿🇦",
+    countryCode: "ZA",
+  },
+  Kuwait: {
+    flag: "🇰🇼",
+    countryCode: "KW",
+  },
+  Algeria: {
+    flag: "🇩🇿",
+    countryCode: "DZ",
+  },
+  Croatia: {
+    flag: "🇭🇷",
+    countryCode: "HR",
+  },
+  Martinique: {
+    flag: "🇲🇶",
+    countryCode: "MQ",
+  },
+  "Sierra Leone": {
+    flag: "🇸🇱",
+    countryCode: "SL",
+  },
+  "Northern Mariana Islands": {
+    flag: "🇲🇵",
+    countryCode: "MP",
+  },
+  Rwanda: {
+    flag: "🇷🇼",
+    countryCode: "RW",
+  },
+  Syria: {
+    flag: "🇸🇾",
+    countryCode: "SY",
+  },
+  "Saint Vincent and the Grenadines": {
+    flag: "🇻🇨",
+    countryCode: "VC",
+  },
+  Kosovo: {
+    flag: "🇽🇰",
+    countryCode: "XK",
+  },
+  "Saint Lucia": {
+    flag: "🇱🇨",
+    countryCode: "LC",
+  },
+  Honduras: {
+    flag: "🇭🇳",
+    countryCode: "HN",
+  },
+  Jordan: {
+    flag: "🇯🇴",
+    countryCode: "JO",
+  },
+  Tuvalu: {
+    flag: "🇹🇻",
+    countryCode: "TV",
+  },
+  Nepal: {
+    flag: "🇳🇵",
+    countryCode: "NP",
+  },
+  Liberia: {
+    flag: "🇱🇷",
+    countryCode: "LR",
+  },
+  "Heard Island and McDonald Islands": {
+    flag: "🇭🇲",
+    countryCode: "HM",
+  },
+  Austria: {
+    flag: "🇦🇹",
+    countryCode: "AT",
+  },
+  Guernsey: {
+    flag: "🇬🇬",
+    countryCode: "GG",
+  },
+  "Central African Republic": {
+    flag: "🇨🇫",
+    countryCode: "CF",
+  },
+  Mauritania: {
+    flag: "🇲🇷",
+    countryCode: "MR",
+  },
+  Djibouti: {
+    flag: "🇩🇯",
+    countryCode: "DJ",
+  },
+  Fiji: {
+    flag: "🇫🇯",
+    countryCode: "FJ",
+  },
+  Norway: {
+    flag: "🇳🇴",
+    countryCode: "NO",
+  },
+  Latvia: {
+    flag: "🇱🇻",
+    countryCode: "LV",
+  },
+  "Falkland Islands": {
+    flag: "🇫🇰",
+    countryCode: "FK",
+  },
+  Kazakhstan: {
+    flag: "🇰🇿",
+    countryCode: "KZ",
+  },
+  "Åland Islands": {
+    flag: "🇦🇽",
+    countryCode: "AX",
+  },
+  Turkmenistan: {
+    flag: "🇹🇲",
+    countryCode: "TM",
+  },
+  "Cocos (Keeling) Islands": {
+    flag: "🇨🇨",
+    countryCode: "CC",
+  },
+  Bulgaria: {
+    flag: "🇧🇬",
+    countryCode: "BG",
+  },
+  Tokelau: {
+    flag: "🇹🇰",
+    countryCode: "TK",
+  },
+  "New Caledonia": {
+    flag: "🇳🇨",
+    countryCode: "NC",
+  },
+  Barbados: {
+    flag: "🇧🇧",
+    countryCode: "BB",
+  },
+  "São Tomé and Príncipe": {
+    flag: "🇸🇹",
+    countryCode: "ST",
+  },
+  Antarctica: {
+    flag: "🇦🇶",
+    countryCode: "AQ",
+  },
+  Brunei: {
+    flag: "🇧🇳",
+    countryCode: "BN",
+  },
+  Bhutan: {
+    flag: "🇧🇹",
+    countryCode: "BT",
+  },
+  Cameroon: {
+    flag: "🇨🇲",
+    countryCode: "CM",
+  },
+  Argentina: {
+    flag: "🇦🇷",
+    countryCode: "AR",
+  },
+  Azerbaijan: {
+    flag: "🇦🇿",
+    countryCode: "AZ",
+  },
+  Mexico: {
+    flag: "🇲🇽",
+    countryCode: "MX",
+  },
+  Morocco: {
+    flag: "🇲🇦",
+    countryCode: "MA",
+  },
+  Guatemala: {
+    flag: "🇬🇹",
+    countryCode: "GT",
+  },
+  Kenya: {
+    flag: "🇰🇪",
+    countryCode: "KE",
+  },
+  Malta: {
+    flag: "🇲🇹",
+    countryCode: "MT",
+  },
+  Czechia: {
+    flag: "🇨🇿",
+    countryCode: "CZ",
+  },
+  Gibraltar: {
+    flag: "🇬🇮",
+    countryCode: "GI",
+  },
+  Aruba: {
+    flag: "🇦🇼",
+    countryCode: "AW",
+  },
+  "Saint Barthélemy": {
+    flag: "🇧🇱",
+    countryCode: "BL",
+  },
+  Monaco: {
+    flag: "🇲🇨",
+    countryCode: "MC",
+  },
+  "United Arab Emirates": {
+    flag: "🇦🇪",
+    countryCode: "AE",
+  },
+  "South Sudan": {
+    flag: "🇸🇸",
+    countryCode: "SS",
+  },
+  "Puerto Rico": {
+    flag: "🇵🇷",
+    countryCode: "PR",
+  },
+  "El Salvador": {
+    flag: "🇸🇻",
+    countryCode: "SV",
+  },
+  France: {
+    flag: "🇫🇷",
+    countryCode: "FR",
+  },
+  Niger: {
+    flag: "🇳🇪",
+    countryCode: "NE",
+  },
+  "Ivory Coast": {
+    flag: "🇨🇮",
+    countryCode: "CI",
+  },
+  "South Georgia": {
+    flag: "🇬🇸",
+    countryCode: "GS",
+  },
+  Botswana: {
+    flag: "🇧🇼",
+    countryCode: "BW",
+  },
+  "British Indian Ocean Territory": {
+    flag: "🇮🇴",
+    countryCode: "IO",
+  },
+  Uzbekistan: {
+    flag: "🇺🇿",
+    countryCode: "UZ",
+  },
+  Tunisia: {
+    flag: "🇹🇳",
+    countryCode: "TN",
+  },
+  "Hong Kong": {
+    flag: "🇭🇰",
+    countryCode: "HK",
+  },
+  "North Macedonia": {
+    flag: "🇲🇰",
+    countryCode: "MK",
+  },
+  Suriname: {
+    flag: "🇸🇷",
+    countryCode: "SR",
+  },
+  Belgium: {
+    flag: "🇧🇪",
+    countryCode: "BE",
+  },
+  "American Samoa": {
+    flag: "🇦🇸",
+    countryCode: "AS",
+  },
+  "Solomon Islands": {
+    flag: "🇸🇧",
+    countryCode: "SB",
+  },
+  Ukraine: {
+    flag: "🇺🇦",
+    countryCode: "UA",
+  },
+  Finland: {
+    flag: "🇫🇮",
+    countryCode: "FI",
+  },
+  "Burkina Faso": {
+    flag: "🇧🇫",
+    countryCode: "BF",
+  },
+  "Bosnia and Herzegovina": {
+    flag: "🇧🇦",
+    countryCode: "BA",
+  },
+  Iran: {
+    flag: "🇮🇷",
+    countryCode: "IR",
+  },
+  Cuba: {
+    flag: "🇨🇺",
+    countryCode: "CU",
+  },
+  Eritrea: {
+    flag: "🇪🇷",
+    countryCode: "ER",
+  },
+  Slovakia: {
+    flag: "🇸🇰",
+    countryCode: "SK",
+  },
+  Lithuania: {
+    flag: "🇱🇹",
+    countryCode: "LT",
+  },
+  "Saint Martin": {
+    flag: "🇲🇫",
+    countryCode: "MF",
+  },
+  "Pitcairn Islands": {
+    flag: "🇵🇳",
+    countryCode: "PN",
+  },
+  "Guinea-Bissau": {
+    flag: "🇬🇼",
+    countryCode: "GW",
+  },
+  Montserrat: {
+    flag: "🇲🇸",
+    countryCode: "MS",
+  },
+  Turkey: {
+    flag: "🇹🇷",
+    countryCode: "TR",
+  },
+  Philippines: {
+    flag: "🇵🇭",
+    countryCode: "PH",
+  },
+  Vanuatu: {
+    flag: "🇻🇺",
+    countryCode: "VU",
+  },
+  Bolivia: {
+    flag: "🇧🇴",
+    countryCode: "BO",
+  },
+  "Saint Kitts and Nevis": {
+    flag: "🇰🇳",
+    countryCode: "KN",
+  },
+  Romania: {
+    flag: "🇷🇴",
+    countryCode: "RO",
+  },
+  Cambodia: {
+    flag: "🇰🇭",
+    countryCode: "KH",
+  },
+  Zimbabwe: {
+    flag: "🇿🇼",
+    countryCode: "ZW",
+  },
+  Jersey: {
+    flag: "🇯🇪",
+    countryCode: "JE",
+  },
+  Kyrgyzstan: {
+    flag: "🇰🇬",
+    countryCode: "KG",
+  },
+  "Caribbean Netherlands": {
+    flag: "🇧🇶",
+    countryCode: "BQ",
+  },
+  Guyana: {
+    flag: "🇬🇾",
+    countryCode: "GY",
+  },
+  "United States Minor Outlying Islands": {
+    flag: "🇺🇲",
+    countryCode: "UM",
+  },
+  Armenia: {
+    flag: "🇦🇲",
+    countryCode: "AM",
+  },
+  Lebanon: {
+    flag: "🇱🇧",
+    countryCode: "LB",
+  },
+  Montenegro: {
+    flag: "🇲🇪",
+    countryCode: "ME",
+  },
+  Greenland: {
+    flag: "🇬🇱",
+    countryCode: "GL",
+  },
+  "Papua New Guinea": {
+    flag: "🇵🇬",
+    countryCode: "PG",
+  },
+  Zambia: {
+    flag: "🇿🇲",
+    countryCode: "ZM",
+  },
+  "Trinidad and Tobago": {
+    flag: "🇹🇹",
+    countryCode: "TT",
+  },
+  "French Southern and Antarctic Lands": {
+    flag: "🇹🇫",
+    countryCode: "TF",
+  },
+  Peru: {
+    flag: "🇵🇪",
+    countryCode: "PE",
+  },
+  Sweden: {
+    flag: "🇸🇪",
+    countryCode: "SE",
+  },
+  Sudan: {
+    flag: "🇸🇩",
+    countryCode: "SD",
+  },
+  "Saint Pierre and Miquelon": {
+    flag: "🇵🇲",
+    countryCode: "PM",
+  },
+  Oman: {
+    flag: "🇴🇲",
+    countryCode: "OM",
+  },
+  India: {
+    flag: "🇮🇳",
+    countryCode: "IN",
+  },
+  Taiwan: {
+    flag: "🇹🇼",
+    countryCode: "TW",
+  },
+  Mongolia: {
+    flag: "🇲🇳",
+    countryCode: "MN",
+  },
+  Senegal: {
+    flag: "🇸🇳",
+    countryCode: "SN",
+  },
+  Tanzania: {
+    flag: "🇹🇿",
+    countryCode: "TZ",
+  },
+  Canada: {
+    flag: "🇨🇦",
+    countryCode: "CA",
+  },
+  "Costa Rica": {
+    flag: "🇨🇷",
+    countryCode: "CR",
+  },
+  China: {
+    flag: "🇨🇳",
+    countryCode: "CN",
+  },
+  Colombia: {
+    flag: "🇨🇴",
+    countryCode: "CO",
+  },
+  Myanmar: {
+    flag: "🇲🇲",
+    countryCode: "MM",
+  },
+  Russia: {
+    flag: "🇷🇺",
+    countryCode: "RU",
+  },
+  "North Korea": {
+    flag: "🇰🇵",
+    countryCode: "KP",
+  },
+  "Cayman Islands": {
+    flag: "🇰🇾",
+    countryCode: "KY",
+  },
+  "Bouvet Island": {
+    flag: "🇧🇻",
+    countryCode: "BV",
+  },
+  Belarus: {
+    flag: "🇧🇾",
+    countryCode: "BY",
+  },
+  Portugal: {
+    flag: "🇵🇹",
+    countryCode: "PT",
+  },
+  Eswatini: {
+    flag: "🇸🇿",
+    countryCode: "SZ",
+  },
+  Poland: {
+    flag: "🇵🇱",
+    countryCode: "PL",
+  },
+  Switzerland: {
+    flag: "🇨🇭",
+    countryCode: "CH",
+  },
+  "Republic of the Congo": {
+    flag: "🇨🇬",
+    countryCode: "CG",
+  },
+  Venezuela: {
+    flag: "🇻🇪",
+    countryCode: "VE",
+  },
+  Panama: {
+    flag: "🇵🇦",
+    countryCode: "PA",
+  },
+  Netherlands: {
+    flag: "🇳🇱",
+    countryCode: "NL",
+  },
+  Samoa: {
+    flag: "🇼🇸",
+    countryCode: "WS",
+  },
+  Denmark: {
+    flag: "🇩🇰",
+    countryCode: "DK",
+  },
+  Luxembourg: {
+    flag: "🇱🇺",
+    countryCode: "LU",
+  },
+  "Faroe Islands": {
+    flag: "🇫🇴",
+    countryCode: "FO",
+  },
+  Slovenia: {
+    flag: "🇸🇮",
+    countryCode: "SI",
+  },
+  Togo: {
+    flag: "🇹🇬",
+    countryCode: "TG",
+  },
+  Thailand: {
+    flag: "🇹🇭",
+    countryCode: "TH",
+  },
+  "Wallis and Futuna": {
+    flag: "🇼🇫",
+    countryCode: "WF",
+  },
+  Bahamas: {
+    flag: "🇧🇸",
+    countryCode: "BS",
+  },
+  Tonga: {
+    flag: "🇹🇴",
+    countryCode: "TO",
+  },
+  Greece: {
+    flag: "🇬🇷",
+    countryCode: "GR",
+  },
+  "San Marino": {
+    flag: "🇸🇲",
+    countryCode: "SM",
+  },
+  Réunion: {
+    flag: "🇷🇪",
+    countryCode: "RE",
+  },
+  "Vatican City": {
+    flag: "🇻🇦",
+    countryCode: "VA",
+  },
+  Burundi: {
+    flag: "🇧🇮",
+    countryCode: "BI",
+  },
+  Bahrain: {
+    flag: "🇧🇭",
+    countryCode: "BH",
+  },
+  "Marshall Islands": {
+    flag: "🇲🇭",
+    countryCode: "MH",
+  },
+  "Turks and Caicos Islands": {
+    flag: "🇹🇨",
+    countryCode: "TC",
+  },
+  "Isle of Man": {
+    flag: "🇮🇲",
+    countryCode: "IM",
+  },
+  Haiti: {
+    flag: "🇭🇹",
+    countryCode: "HT",
+  },
+  Afghanistan: {
+    flag: "🇦🇫",
+    countryCode: "AF",
+  },
+  Israel: {
+    flag: "🇮🇱",
+    countryCode: "IL",
+  },
+  Libya: {
+    flag: "🇱🇾",
+    countryCode: "LY",
+  },
+  Uruguay: {
+    flag: "🇺🇾",
+    countryCode: "UY",
+  },
+  "Norfolk Island": {
+    flag: "🇳🇫",
+    countryCode: "NF",
+  },
+  Nicaragua: {
+    flag: "🇳🇮",
+    countryCode: "NI",
+  },
+  "Cook Islands": {
+    flag: "🇨🇰",
+    countryCode: "CK",
+  },
+  Laos: {
+    flag: "🇱🇦",
+    countryCode: "LA",
+  },
+  "Christmas Island": {
+    flag: "🇨🇽",
+    countryCode: "CX",
+  },
+  "Saint Helena, Ascension and Tristan da Cunha": {
+    flag: "🇸🇭",
+    countryCode: "SH",
+  },
+  Anguilla: {
+    flag: "🇦🇮",
+    countryCode: "AI",
+  },
+  Micronesia: {
+    flag: "🇫🇲",
+    countryCode: "FM",
+  },
+  Germany: {
+    flag: "🇩🇪",
+    countryCode: "DE",
+  },
+  Guam: {
+    flag: "🇬🇺",
+    countryCode: "GU",
+  },
+  Kiribati: {
+    flag: "🇰🇮",
+    countryCode: "KI",
+  },
+  "Sint Maarten": {
+    flag: "🇸🇽",
+    countryCode: "SX",
+  },
+  Spain: {
+    flag: "🇪🇸",
+    countryCode: "ES",
+  },
+  Jamaica: {
+    flag: "🇯🇲",
+    countryCode: "JM",
+  },
+  Palestine: {
+    flag: "🇵🇸",
+    countryCode: "PS",
+  },
+  "French Guiana": {
+    flag: "🇬🇫",
+    countryCode: "GF",
+  },
+  Andorra: {
+    flag: "🇦🇩",
+    countryCode: "AD",
+  },
+  Chile: {
+    flag: "🇨🇱",
+    countryCode: "CL",
+  },
+  Lesotho: {
+    flag: "🇱🇸",
+    countryCode: "LS",
+  },
+  Australia: {
+    flag: "🇦🇺",
+    countryCode: "AU",
+  },
+  Grenada: {
+    flag: "🇬🇩",
+    countryCode: "GD",
+  },
+  Ghana: {
+    flag: "🇬🇭",
+    countryCode: "GH",
+  },
+  Seychelles: {
+    flag: "🇸🇨",
+    countryCode: "SC",
+  },
+  Angola: {
+    flag: "🇦🇴",
+    countryCode: "AO",
+  },
+  Bermuda: {
+    flag: "🇧🇲",
+    countryCode: "BM",
+  },
+  Pakistan: {
+    flag: "🇵🇰",
+    countryCode: "PK",
+  },
+  Mali: {
+    flag: "🇲🇱",
+    countryCode: "ML",
+  },
+  "Saudi Arabia": {
+    flag: "🇸🇦",
+    countryCode: "SA",
+  },
+  Curaçao: {
+    flag: "🇨🇼",
+    countryCode: "CW",
+  },
+  "South Korea": {
+    flag: "🇰🇷",
+    countryCode: "KR",
+  },
+  Ethiopia: {
+    flag: "🇪🇹",
+    countryCode: "ET",
+  },
+  Guadeloupe: {
+    flag: "🇬🇵",
+    countryCode: "GP",
+  },
+  Bangladesh: {
+    flag: "🇧🇩",
+    countryCode: "BD",
+  },
+  "New Zealand": {
+    flag: "🇳🇿",
+    countryCode: "NZ",
+  },
+  Comoros: {
+    flag: "🇰🇲",
+    countryCode: "KM",
+  },
+  Belize: {
+    flag: "🇧🇿",
+    countryCode: "BZ",
+  },
+  Uganda: {
+    flag: "🇺🇬",
+    countryCode: "UG",
+  },
+  Singapore: {
+    flag: "🇸🇬",
+    countryCode: "SG",
+  },
+  Liechtenstein: {
+    flag: "🇱🇮",
+    countryCode: "LI",
+  },
+  Hungary: {
+    flag: "🇭🇺",
+    countryCode: "HU",
+  },
+  Iceland: {
+    flag: "🇮🇸",
+    countryCode: "IS",
+  },
+  Tajikistan: {
+    flag: "🇹🇯",
+    countryCode: "TJ",
+  },
+  Namibia: {
+    flag: "🇳🇦",
+    countryCode: "NA",
+  },
+  "Timor-Leste": {
+    flag: "🇹🇱",
+    countryCode: "TL",
+  },
+  Egypt: {
+    flag: "🇪🇬",
+    countryCode: "EG",
+  },
+  Serbia: {
+    flag: "🇷🇸",
+    countryCode: "RS",
+  },
+  Mauritius: {
+    flag: "🇲🇺",
+    countryCode: "MU",
+  },
+  Macau: {
+    flag: "🇲🇴",
+    countryCode: "MO",
+  },
+  "French Polynesia": {
+    flag: "🇵🇫",
+    countryCode: "PF",
+  },
+  Maldives: {
+    flag: "🇲🇻",
+    countryCode: "MV",
+  },
+  Indonesia: {
+    flag: "🇮🇩",
+    countryCode: "ID",
+  },
+  "DR Congo": {
+    flag: "🇨🇩",
+    countryCode: "CD",
+  },
+  Estonia: {
+    flag: "🇪🇪",
+    countryCode: "EE",
+  },
+  Vietnam: {
+    flag: "🇻🇳",
+    countryCode: "VN",
+  },
+  Italy: {
+    flag: "🇮🇹",
+    countryCode: "IT",
+  },
+  Guinea: {
+    flag: "🇬🇳",
+    countryCode: "GN",
+  },
+  Chad: {
+    flag: "🇹🇩",
+    countryCode: "TD",
+  },
+  Ecuador: {
+    flag: "🇪🇨",
+    countryCode: "EC",
+  },
+  Georgia: {
+    flag: "🇬🇪",
+    countryCode: "GE",
+  },
+  Malawi: {
+    flag: "🇲🇼",
+    countryCode: "MW",
+  },
+  Iraq: {
+    flag: "🇮🇶",
+    countryCode: "IQ",
+  },
+  "Svalbard and Jan Mayen": {
+    flag: "🇸🇯",
+    countryCode: "SJ",
+  },
+  Benin: {
+    flag: "🇧🇯",
+    countryCode: "BJ",
+  },
+  Japan: {
+    flag: "🇯🇵",
+    countryCode: "JP",
+  },
+  "Dominican Republic": {
+    flag: "🇩🇴",
+    countryCode: "DO",
+  },
+  Qatar: {
+    flag: "🇶🇦",
+    countryCode: "QA",
+  },
+  Gabon: {
+    flag: "🇬🇦",
+    countryCode: "GA",
+  },
+};
