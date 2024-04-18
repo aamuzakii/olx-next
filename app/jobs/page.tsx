@@ -14,6 +14,7 @@ interface IJob {
   candidates: string;
   description: string;
   date: string;
+  fee: string;
 }
 
 const page = () => {
@@ -24,14 +25,14 @@ const page = () => {
   const [list, setList] = useState<IJob[]>([]);
 
   const checkUserLoggedIn = async () => {
-    const res = await fetch("http://localhost:3001/api/jobs");
+    const res = await fetch("http://localhost:3000/api/jobs");
 
     const data = await res.json();
     setList(data.data);
   };
 
   const fetchNew = async () => {
-    const res = await fetch("http://localhost:3001/api/fetch-jobs");
+    const res = await fetch("http://localhost:3000/api/fetch-jobs");
 
     const data = await res.json();
     setList(data.data);
@@ -42,7 +43,7 @@ const page = () => {
   }, []);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`http://localhost:3001/api/del-job/${id}`);
+    const res = await fetch(`http://localhost:3000/api/del-job/${id}`);
     const data = await res.json();
     await checkUserLoggedIn();
   };
@@ -83,6 +84,7 @@ const page = () => {
             return (
               <div className={style.card} key={h.id}>
                 <p>{h.date}</p>
+                <p>{h.fee}</p>
                 <h4 className={style.title}>{h.title}</h4>
                 {/* <p>{h.description}</p> */}
                 <ul>
