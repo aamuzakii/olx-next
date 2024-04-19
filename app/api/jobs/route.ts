@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 
 import { PrismaClient } from "@prisma/client";
-import { maxBudget } from "@/app/helper/general";
 
 export const where = {
   deleted: false || null,
-  candidates: "Less than 5" || "5 to 10",
+  candidates: "Less than 5" || "5 to 10" || "10 to 15",
   country: {
-    notIn: ["UnitedKingdom", "UnitedStates", "India", "Israel"],
+    notIn: ["India", "Israel", "United Kingdom", "United States"],
   },
 };
 
