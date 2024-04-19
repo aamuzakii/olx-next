@@ -4,7 +4,10 @@ import { PrismaClient } from "@prisma/client";
 
 export const where = {
   deleted: false || null,
-  candidates: "Less than 5" || "5 to 10" || "10 to 15",
+  candidates:
+  {
+    in: ["Less than 5", "5 to 10", "10 to 15"]
+  },
   country: {
     notIn: ["India", "Israel", "United Kingdom", "United States"],
   },
