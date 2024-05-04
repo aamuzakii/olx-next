@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { maxBudget } from "@/app/helper/general";
 
-export const where = {
+const where = {
   deleted: false,
   price: {
     lte: maxBudget,
