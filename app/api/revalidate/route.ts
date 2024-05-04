@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { exec } from "child_process";
-import { where } from "../houses/route";
+// import { where } from "../houses/route";
+const where = {}
 
 export async function GET() {
   const prisma = new PrismaClient();

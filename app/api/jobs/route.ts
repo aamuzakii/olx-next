@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { PrismaClient } from "@prisma/client";
 
-export const where = {
+const where = {
   deleted: false || null,
   candidates:
   {
