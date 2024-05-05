@@ -25,15 +25,17 @@ const page = () => {
 
   const [list, setList] = useState<IJob[]>([]);
 
+  const nextApiUrl = process.env.NEXT_API_URL;
+
   const checkUserLoggedIn = async () => {
-    const res = await fetch("http://localhost:3000/api/jobs");
+    const res = await fetch(`${nextApiUrl}/api/jobs`);
 
     const data = await res.json();
     setList(data.data);
   };
 
   const fetchNew = async () => {
-    const res = await fetch("http://localhost:3000/api/fetch-jobs");
+    const res = await fetch(`${nextApiUrl}/api/fetch-jobs`);
 
     const data = await res.json();
     setList(data.data);
