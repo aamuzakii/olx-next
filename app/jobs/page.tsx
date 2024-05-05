@@ -25,9 +25,11 @@ const page = () => {
 
   const [list, setList] = useState<IJob[]>([]);
 
-  const nextApiUrl = process.env.NEXT_API_URL;
+  const nextApiUrl = process.env.NEXT_API_URL || "";
 
   const checkUserLoggedIn = async () => {
+    console.log("nextApiUrl", nextApiUrl);
+
     const res = await fetch(`${nextApiUrl}/api/jobs`);
 
     const data = await res.json();
