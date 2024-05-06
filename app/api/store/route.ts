@@ -16,4 +16,8 @@ export async function POST(req: NextRequest) {
 
   await prisma.$disconnect();
 
+  console.log("created job: ", jobs.count);
+
+  return NextResponse.json({ messsage: jobs.count });
+
 }
