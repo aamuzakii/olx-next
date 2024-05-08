@@ -6,7 +6,7 @@ import fs from "fs/promises";
 const { JSDOM } = require("jsdom");
 
 export async function getHousesByCity(city: string) {
-  if ((process.env.API_URL)?.includes('vercel')) return [] // skip for vercel deployment
+  if ((process.env.NEXT_API_URL)?.includes('vercel')) return [] // skip for vercel deployment
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";

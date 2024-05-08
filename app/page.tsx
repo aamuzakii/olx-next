@@ -9,7 +9,7 @@ export default function Home() {
   const [list, setList] = useState<House[]>([]);
 
   const checkUserLoggedIn = async () => {
-    const res = await fetch("http://localhost:3000/api/houses");
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/houses`);
 
     const data = await res.json();
     setList(data.data);
@@ -22,13 +22,13 @@ export default function Home() {
   }, []);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/del/${id}`);
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/del/${id}`);
     const data = await res.json();
     await checkUserLoggedIn();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/houses/${id}`, {
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/houses/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,13 +43,13 @@ export default function Home() {
   };
 
   const handleClickRevalidate = async () => {
-    const res = await fetch(`http://localhost:3000/api/revalidate`);
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/revalidate`);
     const data = await res.json();
     alert(`revalidated. lost: ${data.data.count}`);
   };
 
   const handleClickRefetch = async () => {
-    const res = await fetch(`http://localhost:3000/api/get_many`);
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/get_many`);
     const data = await res.json();
     await checkUserLoggedIn();
     alert(`got ${data.data.count}`);
@@ -59,13 +59,16 @@ export default function Home() {
 
   const submitComment = async (e: any, id: number) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ comment }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_API_URL}/api/add_comment/${id}`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comment }),
+      }
+    );
     // const x = document.getElementsByTagName("form")[id];
     // x.style.display = "none";
     setComment("");

@@ -37,13 +37,13 @@ const Card = ({
   const formSchoolDistanceRef = useRef<HTMLFormElement | null>(null);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/del/${id}`);
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/del/${id}`);
     const data = await res.json();
     await checkUserLoggedIn();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
-    const res = await fetch(`http://localhost:3000/api/houses/${id}`, {
+    const res = await fetch(`${process.env.NEXT_API_URL}/api/houses/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,21 +72,24 @@ const Card = ({
   const submitComment = async (e: any, id: number, label: string) => {
     e.preventDefault();
 
-    const res = await fetch(`http://localhost:3000/api/add_comment/${id}`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        comment,
-        type: label,
-        workDistance,
-        gateOrCanopy,
-        dividable,
-        warteg,
-        schoolDistance,
-      }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_API_URL}/api/add_comment/${id}`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          comment,
+          type: label,
+          workDistance,
+          gateOrCanopy,
+          dividable,
+          warteg,
+          schoolDistance,
+        }),
+      }
+    );
 
     const titleCase = label.charAt(0).toUpperCase() + label.slice(1);
     const formRef = eval(`form${titleCase}Ref`).current;
