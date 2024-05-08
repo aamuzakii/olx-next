@@ -7,12 +7,12 @@ import _ from "lodash";
 
 const Card = ({
   h,
-  checkUserLoggedIn,
+  refreshList,
   formattedNumber,
   i,
 }: {
   h: House;
-  checkUserLoggedIn: any;
+  refreshList: any;
   formattedNumber: any;
   i: number;
 }) => {
@@ -39,7 +39,7 @@ const Card = ({
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`${process.env.NEXT_API_URL}/api/del/${id}`);
     const data = await res.json();
-    await checkUserLoggedIn();
+    await refreshList();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
@@ -51,7 +51,7 @@ const Card = ({
       body: JSON.stringify({ standard: "not - high" }),
     });
 
-    await checkUserLoggedIn();
+    await refreshList();
   };
   const handleOpenComment = async (id: number, e: any, label: string) => {
     e.preventDefault();
@@ -98,7 +98,7 @@ const Card = ({
     previousRef!.style.display = "flex";
     formRef!.style.display = "none";
 
-    await checkUserLoggedIn();
+    await refreshList();
   };
 
   let publishedStyle = h.publishedStr?.toUpperCase().includes("NOV")

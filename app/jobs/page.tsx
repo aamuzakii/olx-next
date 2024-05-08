@@ -27,7 +27,7 @@ const page = () => {
 
   const nextApiUrl = process.env.NEXT_API_URL || "";
 
-  const checkUserLoggedIn = async () => {
+  const refreshList = async () => {
     console.log("nextApiUrl", nextApiUrl);
 
     const res = await fetch(`${nextApiUrl}/api/jobs`);
@@ -44,13 +44,13 @@ const page = () => {
   };
 
   useEffect(() => {
-    checkUserLoggedIn();
+    refreshList();
   }, []);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`${process.env.NEXT_API_URL}/api/del-job/${id}`);
     const data = await res.json();
-    await checkUserLoggedIn();
+    await refreshList();
   };
 
   const [isOpen, setIsOpen] = useState(false);

@@ -8,7 +8,7 @@ import Card from "./card";
 export default function Home() {
   const [list, setList] = useState<House[]>([]);
 
-  const checkUserLoggedIn = async () => {
+  const refreshList = async () => {
     const res = await fetch(`${process.env.NEXT_API_URL}/api/houses`);
 
     const data = await res.json();
@@ -18,13 +18,13 @@ export default function Home() {
   const exampleRef = useRef(null);
 
   useEffect(() => {
-    checkUserLoggedIn();
+    refreshList();
   }, []);
 
   const handleClickDelete = async (id: number) => {
     const res = await fetch(`${process.env.NEXT_API_URL}/api/del/${id}`);
     const data = await res.json();
-    await checkUserLoggedIn();
+    await refreshList();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
@@ -36,7 +36,7 @@ export default function Home() {
       body: JSON.stringify({ standard: "not - high" }),
     });
 
-    await checkUserLoggedIn();
+    await refreshList();
 
     // const data = await res.json();
     // alert("deleted");
@@ -51,7 +51,7 @@ export default function Home() {
   const handleClickRefetch = async () => {
     const res = await fetch(`${process.env.NEXT_API_URL}/api/get_many`);
     const data = await res.json();
-    await checkUserLoggedIn();
+    await refreshList();
     alert(`got ${data.data.count}`);
   };
 
@@ -72,7 +72,7 @@ export default function Home() {
     // const x = document.getElementsByTagName("form")[id];
     // x.style.display = "none";
     setComment("");
-    await checkUserLoggedIn();
+    await refreshList();
   };
 
   return (
@@ -111,7 +111,7 @@ export default function Home() {
             return (
               <Card
                 h={h}
-                checkUserLoggedIn={checkUserLoggedIn}
+                refreshList={refreshList}
                 formattedNumber={formattedNumber}
                 i={i}
                 key={h.id}
