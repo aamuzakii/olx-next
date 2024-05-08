@@ -9,7 +9,7 @@ export default function Home() {
   const [list, setList] = useState<House[]>([]);
 
   const refreshList = async () => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/houses`);
+    const res = await fetch(`/api/houses`);
 
     const data = await res.json();
     setList(data.data);
@@ -22,13 +22,13 @@ export default function Home() {
   }, []);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/del/${id}`);
+    const res = await fetch(`/api/del/${id}`);
     const data = await res.json();
     await refreshList();
   };
 
   const handleClickJustNotPerfect = async (id: number) => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/houses/${id}`, {
+    const res = await fetch(`/api/houses/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,13 +43,13 @@ export default function Home() {
   };
 
   const handleClickRevalidate = async () => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/revalidate`);
+    const res = await fetch(`/api/revalidate`);
     const data = await res.json();
     alert(`revalidated. lost: ${data.data.count}`);
   };
 
   const handleClickRefetch = async () => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/get_many`);
+    const res = await fetch(`/api/get_many`);
     const data = await res.json();
     await refreshList();
     alert(`got ${data.data.count}`);
@@ -59,16 +59,13 @@ export default function Home() {
 
   const submitComment = async (e: any, id: number) => {
     e.preventDefault();
-    const res = await fetch(
-      `${process.env.NEXT_API_URL}/api/add_comment/${id}`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ comment }),
-      }
-    );
+    const res = await fetch(`/api/add_comment/${id}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment }),
+    });
     // const x = document.getElementsByTagName("form")[id];
     // x.style.display = "none";
     setComment("");

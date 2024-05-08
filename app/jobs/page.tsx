@@ -48,7 +48,7 @@ const page = () => {
   }, []);
 
   const handleClickDelete = async (id: number) => {
-    const res = await fetch(`${process.env.NEXT_API_URL}/api/del-job/${id}`);
+    const res = await fetch(`/api/del-job/${id}`);
     const data = await res.json();
     await refreshList();
   };
