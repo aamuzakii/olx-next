@@ -85,7 +85,9 @@ const page = () => {
               <div className={style.card} key={h.id}>
                 <p>{h.date}</p>
                 <p>{h.fee}</p>
-                <h4 className={style.title}>{h.title}</h4>
+                <h4 className={style.title}>
+                  {h.id}. {h.title}
+                </h4>
                 {/* <p>{h.description}</p> */}
                 <ul>
                   {stacks.map((s: string, i: number) => {
