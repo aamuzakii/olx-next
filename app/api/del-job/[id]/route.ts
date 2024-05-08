@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const id = Number(params.id);
-  console.warn("process deleting:", id);
+  console.warn("start process deleting:", id);
 
   const prisma = new PrismaClient();
 
@@ -21,5 +21,5 @@ export async function GET(
   });
   await prisma.$disconnect();
 
-  return NextResponse.json({ data: deleted.title });
+  return NextResponse.json({ data: deleted });
 }
