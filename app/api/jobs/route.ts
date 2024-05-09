@@ -14,6 +14,8 @@ const where = {
 };
 
 export async function GET() {
+  console.log("init get request");
+
   const prisma = new PrismaClient();
 
   const houses = await prisma.job.findMany({
@@ -22,6 +24,8 @@ export async function GET() {
       id: "asc",
     },
   });
+  console.log("prisma", prisma);
+
   await prisma.$disconnect();
 
   return NextResponse.json({ data: houses });

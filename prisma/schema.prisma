@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("MONGODB_URI") // Replace with your MongoDB connection string
 }
 
 model House {
-  id             Int       @id @default(autoincrement())
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
   url            String    @unique
   feature        String?
   title          String?
@@ -35,7 +35,7 @@ model House {
 }
 
 model Job {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   url         String   @unique
   title       String   @default("")
   stack       String?
@@ -44,5 +44,5 @@ model Job {
   candidates  String?
   description String?
   date        String?
-  deleted     Boolean?
+  deleted     Boolean? @default(false)
 }
