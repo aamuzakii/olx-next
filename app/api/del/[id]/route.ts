@@ -6,7 +6,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const id = Number(params.id);
+  const id = (params.id);
   console.warn("process deleting:", id);
 
   const prisma = new PrismaClient();

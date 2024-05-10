@@ -36,13 +36,13 @@ const Card = ({
   const previosSchoolDistanceRef = useRef<HTMLHeadingElement | null>(null);
   const formSchoolDistanceRef = useRef<HTMLFormElement | null>(null);
 
-  const handleClickDelete = async (id: number) => {
+  const handleClickDelete = async (id: number | string) => {
     const res = await fetch(`/api/del/${id}`);
     const data = await res.json();
     await refreshList();
   };
 
-  const handleClickJustNotPerfect = async (id: number) => {
+  const handleClickJustNotPerfect = async (id: number | string) => {
     const res = await fetch(`/api/houses/${id}`, {
       method: "POST",
       headers: {
@@ -69,7 +69,7 @@ const Card = ({
     eval(`set${titleCase}`)(existingComment);
   };
 
-  const submitComment = async (e: any, id: number, label: string) => {
+  const submitComment = async (e: any, id: number | string, label: string) => {
     e.preventDefault();
 
     const res = await fetch(`/api/add_comment/${id}`, {

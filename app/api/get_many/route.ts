@@ -47,7 +47,7 @@ export async function GET() {
 
   const res = await prisma.house.createMany({
     data: flattenedHouses,
-    skipDuplicates: true,
+    // skipDuplicates: true,
   });
 
   await prisma.$disconnect();

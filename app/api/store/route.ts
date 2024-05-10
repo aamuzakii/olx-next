@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
 
   const jobs = await prisma.job.createMany({
     data: arrOfJobs,
-    skipDuplicates: true,
+    // skipDuplicates: true,
   });
 
   await prisma.$disconnect();
