@@ -80,7 +80,7 @@ export async function GET() {
 
   const jobs = await prisma.job.createMany({
     data: arrOfJobs,
-    // skipDuplicates: '',
+    skipDuplicates: true,
   });
 
   await prisma.$disconnect();

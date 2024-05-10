@@ -5,7 +5,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const id = (params.id);
+  const id = Number(params.id);
 
   let passedValue = await new Response(request.body).text();
   let { standard } = JSON.parse(passedValue);
