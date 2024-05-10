@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const where = {
-  deleted: false, // mongoDB cannot receive null as boolean value
+  deleted: false || null,
   candidates:
   {
     in: ["Less than 5", "5 to 10", "10 to 15"]
