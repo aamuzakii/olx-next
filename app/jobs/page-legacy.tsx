@@ -28,8 +28,6 @@ const page = () => {
   const nextApiUrl = process.env.NEXT_API_URL || "";
 
   const refreshList = async () => {
-    console.log("nextApiUrl", nextApiUrl);
-
     const res = await fetch(`${nextApiUrl}/api/jobs`);
 
     const data = await res.json();

@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 
 export async function POST(req: NextRequest) {
   const data = await req.json();
-  console.log(data);
   const arrOfJobs = data
 
 
@@ -16,7 +15,6 @@ export async function POST(req: NextRequest) {
 
   await prisma.$disconnect();
 
-  console.log("created job: ", jobs.count);
 
   return NextResponse.json({ messsage: jobs.count });
 

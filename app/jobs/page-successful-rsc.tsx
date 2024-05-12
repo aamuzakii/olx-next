@@ -71,8 +71,6 @@ const page = async () => {
   // const openDialog = () => setIsOpen(true);
   // const closeDialog = () => setIsOpen(false);
 
-  console.log("list", list);
-
   return (
     <>
       <main className={style.main}>

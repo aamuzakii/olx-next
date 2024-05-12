@@ -5,6 +5,9 @@ import Trash from "../atom/Trash";
 import Chevron from "../atom/Chevron";
 import { countries } from "./country";
 import { PrismaClient } from "@prisma/client";
+import { useFormState, useFormStatus } from "react-dom";
+import { DeleteForm } from "./delete";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -54,6 +57,30 @@ async function getJobDataNext13() {
 }
 
 const page = async () => {
+  async function deleteJob(formData: FormData) {
+    "use server";
+
+    const prisma = new PrismaClient();
+
+    const foo = formData.get("id");
+
+    console.log(foo, "<<<<<<<<<<<<<,");
+
+    const deleted = await prisma.job.update({
+      where: {
+        id: Number(foo),
+      },
+      data: {
+        deleted: true,
+      },
+    });
+
+    await prisma.$disconnect();
+    revalidatePath("/jobs");
+
+    // mutate data
+    // revalidate cache
+  }
   interface IFoo {
     price: string;
   }
@@ -72,8 +99,6 @@ const page = async () => {
 
   // const openDialog = () => setIsOpen(true);
   // const closeDialog = () => setIsOpen(false);
-
-  console.log("list", list);
 
   return (
     <>
@@ -114,6 +139,10 @@ const page = async () => {
                   <a href={h.url} target="_blank">
                     <Chevron />
                   </a>
+                  <form action={deleteJob}>
+                    <input type="hidden" name="id" value={h.id} />
+                    <button type="submit">Delete</button>
+                  </form>
                 </div>
               </div>
             );
