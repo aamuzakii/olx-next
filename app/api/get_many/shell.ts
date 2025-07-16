@@ -6,7 +6,7 @@ import fs from "fs/promises";
 const { JSDOM } = require("jsdom");
 
 export async function getHousesByCity(city: string) {
-  return []
+  // return []
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
@@ -16,7 +16,7 @@ export async function getHousesByCity(city: string) {
   const yearly = "20000000_to_25000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/${city}/disewakan-rumah-apartemen_c5160?filter=p_bedroom_eq_2%2B%2Cprice_between_${yearly},type_eq_rumah${sortByDate}`;
+  const webUrl = `https://www.olx.co.id/mobil-bekas_c198?filter=m_body_eq_mpv_and_hatchback_and_compact-city-car%2Cm_seller_type_eq_seller-type-individu%2Cprice_between_70000000_to_90000000`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
@@ -29,11 +29,27 @@ export async function getHousesByCity(city: string) {
     const dom = new JSDOM(data);
     const document = dom.window.document;
 
+    // Extract window.__APP JSON from script tag
+    const scripts = document.querySelectorAll("script");
+
+    let appScriptContent = "";
+    scripts.forEach((script, idx) => {
+      const text = script.textContent || "";
+      if (idx === 5) {
+        appScriptContent = text;
+      }
+    });
+
+    console.log(appScriptContent.slice(0, 5000)); // show first 500 chars to confirm
+
     const targetSpan = await document.querySelector(
       'span[data-aut-id="itemPrice"]'
     );
 
     if (targetSpan) {
+      console.log(targetSpan, "<< targetSpan");
+      return;
+
       const elementCollection =
         targetSpan.parentElement.parentElement.parentElement.parentElement;
       const loopable = elementCollection.children;

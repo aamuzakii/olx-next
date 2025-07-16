@@ -18,13 +18,13 @@ import {
 export async function GET() {
   const preferredCities = [
     cileungsi,
-    gunungPutri,
-    jatiSampurna,
-    cimanggis,
-    sukmajaya,
-    bogorKab,
-    depok,
-    tangsel,
+    // gunungPutri,
+    // jatiSampurna,
+    // cimanggis,
+    // sukmajaya,
+    // bogorKab,
+    // depok,
+    // tangsel,
     // tangerangKota,
     // bekasiKota,
   ];
