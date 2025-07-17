@@ -4,6 +4,8 @@ import { exec } from "child_process";
 import { format, sub } from "date-fns";
 import fs from "fs/promises";
 const { JSDOM } = require("jsdom");
+import { jsonrepair } from "jsonrepair";
+import _ from "lodash";
 
 export async function getHousesByCity(city: string) {
   // return []
@@ -40,7 +42,35 @@ export async function getHousesByCity(city: string) {
       }
     });
 
-    console.log(appScriptContent.slice(0, 5000)); // show first 500 chars to confirm
+    const raw = appScriptContent.slice(0, 500000);
+
+    try {
+      const match = raw.match(/window\.__APP\s*=\s*({[\s\S]*)$/);
+      if (match) {
+        const brokenJson = match[1];
+        const repaired = jsonrepair(brokenJson);
+        const app = JSON.parse(repaired);
+        // console.log(app.states);
+
+        const mama = app.states.items.elements;
+        console.dir(mama, { depth: null });
+        await fs.writeFile("app_states.json", JSON.stringify(mama, null, 2));
+
+        const result = _.map(mama, (value, key) => {
+          console.log(value.title, "<< value");
+
+          return { key, value };
+        });
+      } else {
+        console.error("No match found for window.__APP");
+      }
+    } catch (err) {
+      console.error("Could not parse JSON:", err.message);
+    }
+
+    // export to a file json app.states
+
+    return;
 
     const targetSpan = await document.querySelector(
       'span[data-aut-id="itemPrice"]'

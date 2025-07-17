@@ -39,20 +39,17 @@ export default function Home() {
     await refreshList();
 
     // const data = await res.json();
-    // alert("deleted");
   };
 
   const handleClickRevalidate = async () => {
     const res = await fetch(`/api/revalidate`);
     const data = await res.json();
-    alert(`revalidated. lost: ${data.data.count}`);
   };
 
   const handleClickRefetch = async () => {
     const res = await fetch(`/api/get_many`);
     const data = await res.json();
     await refreshList();
-    alert(`got ${data.data.count}`);
   };
 
   const [comment, setComment] = useState("");
