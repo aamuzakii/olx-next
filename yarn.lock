@@ -599,6 +599,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonrepair@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "jsonrepair@npm:3.13.0"
+  bin:
+    jsonrepair: bin/cli.js
+  checksum: 054206c07492fe3c90d85131859c5336128880915d0a8dca444ce10055613f041eee8a56af62bfc156d96d6e7e46bdee7caf72b28aafeb5e56543e9bde2cbce3
+  languageName: node
+  linkType: hard
+
 "lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
@@ -731,6 +740,7 @@ __metadata:
     auth0: "npm:^4.3.1"
     date-fns: "npm:^2.30.0"
     jsdom: "npm:^22.1.0"
+    jsonrepair: "npm:^3.13.0"
     lodash: "npm:^4.17.21"
     next: "npm:14.0.0"
     prisma: "npm:^5.12.1"
