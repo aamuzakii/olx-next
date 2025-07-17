@@ -1,0 +1,307 @@
+{
+  "id": "921996440",
+  "score": 0.9171122994652406,
+  "spell": {
+    "id": 135,
+    "key": "GOOD_BERRY_ES",
+    "version": "1",
+    "main": false,
+    "facet_disabled": false,
+    "default_sorting": "DEFAULT"
+  },
+  "status": {
+    "status": "active",
+    "allow_edit": true,
+    "ban_reason_id": null,
+    "display": "active",
+    "translated_display": "Aktif",
+    "link": null,
+    "flags": {
+      "new": false,
+      "hot": false
+    },
+    "message": null,
+    "allow_deactivate": true
+  },
+  "category_id": "198",
+  "ad_id": "921996440",
+  "favorites": {
+    "count": 55,
+    "count_label": "55",
+    "count_label_next": "56",
+    "count_label_prev": "54"
+  },
+  "user_name": "Renaldi Amriza",
+  "discount_toggle": null,
+  "has_phone_param": false,
+  "description": "Dijual Nissan Grand Livina 1,5 Automatic Ultimate tahun 2012 warna silver kondisi baik pemakaian pribadi (bukan showroom) dgn spesifikasi :\n- Pemakai pribadi bukan showroom\n- Kondisi baik, mesin mulus tanpa rembesan\n- Kaki kaki aman\n- Kanvas rem depan & belakang baru ganti\n- Disc brake depan baru ganti\n- whell cylinder belakang baru ganti\n- Baru kuras minyak rem\n- Kaki2 baru diganti : Link stabil, boosing link, dll\n- Oli transmisi baru diganti\n- Aki gress baru ganti (Maret 2025)\n- Service record Nissan\n- Electrical berfungsi\n- AC Dingin sekali\n- 4 Ban 100% baru gress\n- Pajak hidup 02-2026 (Baru perpanjang)\n- Kunci lengkap ada 2\n- Type ultimate tertinggi ke 2 (dibawah HWS)\n- Surat2 lengkap (BPKB,STNK,Faktur,NIK)\n- Km 140.000 an on going\n- Tarikan mantap BBM irit selalu Pertamax\n- All original\n- Harga Rp 82 jt nego tipis kondisi baik\n- Lokasi Limo Depok\n\nLain2 silahkan cek unit. Yg mau nego sadis cari unit lain saja. Kondisi unit baik sesuai dgn harga. Bisa chat atau WA utk check unit namun lebih prefer WA supaya fast respon. Selama iklan masih tayang berarti unit masih ada. Terima Kasih..",
+  "created_at": "2025-07-05T17:16:16+07:00",
+  "inspection_info": null,
+  "package_id": null,
+  "title": "Nissan Grand Livina Ultimate th 2012, Automatic 1,5 pemakaian pribadi",
+  "multi_location": [],
+  "car_body_type": "mpv",
+  "video_url": null,
+  "partner_id": null,
+  "user_type": "Regular",
+  "spotlightPackageId": null,
+  "price": {
+    "value": {
+      "raw": 82000000,
+      "currency": {
+        "iso_4217": "IDR",
+        "pre": "Rp"
+      },
+      "display": "Rp 82.000.000"
+    },
+    "key_name": "Harga",
+    "key": "price"
+  },
+  "has_promotion": false,
+  "partner_code": null,
+  "is_video_generated": false,
+  "monetizationInfo": null,
+  "images": [
+    {
+      "id": "2440451752",
+      "external_id": "6670e5cfd76a1-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5cfd76a1-ID/image"
+    },
+    {
+      "id": "2440451753",
+      "external_id": "6670e5d031719-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d031719-ID/image"
+    },
+    {
+      "id": "2440451759",
+      "external_id": "6670e5d38587d-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d38587d-ID/image"
+    },
+    {
+      "id": "2440451760",
+      "external_id": "6670e5d3a090c-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d3a090c-ID/image"
+    },
+    {
+      "id": "2440451761",
+      "external_id": "6670e5d4ebe9e-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d4ebe9e-ID/image"
+    },
+    {
+      "id": "2440451762",
+      "external_id": "6670e5d4c9d2d-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d4c9d2d-ID/image"
+    },
+    {
+      "id": "2440451763",
+      "external_id": "6670e5d55e590-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/6670e5d55e590-ID/image"
+    },
+    {
+      "id": "2478018378",
+      "external_id": "66f8d731e317c-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d731e317c-ID/image"
+    },
+    {
+      "id": "2478018379",
+      "external_id": "66f8d71334c4f-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d71334c4f-ID/image"
+    },
+    {
+      "id": "2478018380",
+      "external_id": "66f8d71548e8-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d71548e8-ID/image"
+    },
+    {
+      "id": "2478018381",
+      "external_id": "66f8d71ec0e52-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d71ec0e52-ID/image"
+    },
+    {
+      "id": "2478018382",
+      "external_id": "66f8d723607d4-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d723607d4-ID/image"
+    },
+    {
+      "id": "2478018383",
+      "external_id": "66f8d72e1d6ce-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d72e1d6ce-ID/image"
+    },
+    {
+      "id": "2478018384",
+      "external_id": "66f8d72fd73f4-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d72fd73f4-ID/image"
+    },
+    {
+      "id": "2478018385",
+      "external_id": "66f8d7302d2ce-ID",
+      "width": 1080,
+      "height": 810,
+      "url": "https://apollo.olx.co.id:443/v1/files/66f8d7302d2ce-ID/image"
+    }
+  ],
+  "certified_car": false,
+  "is_multi_location": false,
+  "is_kyc_verified_user": false,
+  "locations_resolved": {
+    "COUNTRY_id": "1000001",
+    "COUNTRY_name": "Indonesia",
+    "ADMIN_LEVEL_1_id": "2000007",
+    "ADMIN_LEVEL_1_name": "Jakarta D.K.I.",
+    "ADMIN_LEVEL_3_id": "4000030",
+    "ADMIN_LEVEL_3_name": "Jakarta Selatan",
+    "SUBLOCALITY_LEVEL_1_id": "5000482",
+    "SUBLOCALITY_LEVEL_1_name": "Cilandak"
+  },
+  "deal_price": null,
+  "business_platform": null,
+  "main_info": "2012",
+  "is_escrow_enabled": false,
+  "artificial_boost": false,
+  "user_profile_image": "https://apollo.olx.co.id/v1/files/dflg66b61wwv2-ID/image",
+  "display_date": "2025-07-05T10:14:58+0000",
+  "isSpinViewAvailable": false,
+  "user_id": "75867464",
+  "installment": null,
+  "escrowEnabled": false,
+  "created_at_first": "2024-06-18T08:42:01+07:00",
+  "locations": [
+    {
+      "lat": -6.284,
+      "lon": 106.8,
+      "region_id": "2000007",
+      "district_id": "5000482",
+      "city_id": "4000030"
+    }
+  ],
+  "parameters": [
+    {
+      "type": "single",
+      "key": "make",
+      "value": "mobil-bekas-nissan",
+      "value_name": "Nissan",
+      "absoluteValue": "mobil-bekas-nissan",
+      "key_name": "Merek",
+      "formatted_value": "Nissan"
+    },
+    {
+      "type": "single",
+      "key": "m_tipe",
+      "value": "mobil-bekas-nissan-grandlivina",
+      "value_name": "Grand livina",
+      "absoluteValue": "mobil-bekas-nissan-grandlivina",
+      "key_name": "Model",
+      "formatted_value": "Grand livina"
+    },
+    {
+      "type": "single",
+      "key": "m_tipe_variant",
+      "value": "mobil-bekas-nissan-grandlivina-1.5-ultimate-bensin-at",
+      "value_name": "1.5 Ultimate Bensin-AT",
+      "absoluteValue": "mobil-bekas-nissan-grandlivina-1.5-ultimate-bensin-at",
+      "key_name": "Varian",
+      "formatted_value": "1.5 Ultimate Bensin-AT"
+    },
+    {
+      "type": "single",
+      "key": "m_year",
+      "value": "2012",
+      "value_name": "2012",
+      "absoluteValue": "2012",
+      "key_name": "Tahun",
+      "formatted_value": "2012"
+    },
+    {
+      "type": "single",
+      "key": "mileage",
+      "value": "140",
+      "value_name": "135.000-140.000",
+      "absoluteValue": "140",
+      "key_name": "Jarak tempuh",
+      "formatted_value": "135.000-140.000 km"
+    },
+    {
+      "type": "single",
+      "key": "m_fuel",
+      "value": "bensin",
+      "value_name": "Bensin",
+      "absoluteValue": "bensin",
+      "key_name": "Tipe bahan bakar",
+      "formatted_value": "Bensin"
+    },
+    {
+      "type": "single",
+      "key": "m_color",
+      "value": "silver",
+      "value_name": "Silver",
+      "absoluteValue": "silver",
+      "key_name": "Warna",
+      "formatted_value": "Silver"
+    },
+    {
+      "type": "single",
+      "key": "m_transmission",
+      "value": "automatic",
+      "value_name": "Automatic",
+      "absoluteValue": "automatic",
+      "key_name": "Transmisi",
+      "formatted_value": "Automatic"
+    },
+    {
+      "type": "single",
+      "key": "m_body",
+      "value": "mpv",
+      "value_name": "MPV",
+      "absoluteValue": "mpv",
+      "key_name": "Tipe bodi",
+      "formatted_value": "MPV"
+    },
+    {
+      "type": "single",
+      "key": "m_engine_capacity",
+      "value": "1000-to-1500",
+      "value_name": ">1.000 - 1.500 cc",
+      "absoluteValue": "1000-to-1500",
+      "key_name": "Kapasitas mesin",
+      "formatted_value": ">1.000 - 1.500 cc"
+    },
+    {
+      "type": "single",
+      "key": "m_seller_type",
+      "value": "seller-type-individu",
+      "value_name": "Individu",
+      "absoluteValue": "seller-type-individu",
+      "key_name": "Tipe Penjual",
+      "formatted_value": "Individu"
+    }
+  ],
+  "escrow_details": null
+}

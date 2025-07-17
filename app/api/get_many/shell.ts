@@ -22,7 +22,7 @@ export async function getHousesByCity(city: string) {
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
-  let arr = [];
+  let arr: any[] = [];
   try {
     const { stdout, stderr } = await exec(command);
     await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -35,7 +35,7 @@ export async function getHousesByCity(city: string) {
     const scripts = document.querySelectorAll("script");
 
     let appScriptContent = "";
-    scripts.forEach((script, idx) => {
+    scripts.forEach((script: { textContent: string }, idx: number) => {
       const text = script.textContent || "";
       if (idx === 5) {
         appScriptContent = text;
@@ -59,12 +59,36 @@ export async function getHousesByCity(city: string) {
         const result = _.map(mama, (value, key) => {
           console.log(value.title, "<< value");
 
+          const { price, images } = value;
+
+          // convert title to dash
+          const title = value.title
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, "")
+            .replace(/\s+/g, "-");
+
+          const url = `https://www.olx.co.id/item/${title}-iid-${value.id}`;
+
+          const finalObj = {
+            url,
+            price: price.value.raw,
+            publishedStr: "gatau",
+            imageUrl: images[0].url,
+            feature: "",
+            title,
+            prefecture: "",
+          };
+
+          arr.push(finalObj);
+
+          console.log(url, "<< url");
+
           return { key, value };
         });
       } else {
         console.error("No match found for window.__APP");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error("Could not parse JSON:", err.message);
     }
 
