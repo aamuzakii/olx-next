@@ -18,7 +18,7 @@ export async function getHousesByCity(city: string) {
   const yearly = "20000000_to_25000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/mobil-bekas_c198?filter=m_body_eq_mpv_and_hatchback_and_compact-city-car%2Cm_seller_type_eq_seller-type-individu%2Cprice_between_70000000_to_90000000`;
+  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2012?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_4000000_to_100000000`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
