@@ -8,10 +8,9 @@ const where = {
   // price: {
   //   lte: maxBudget,
   // },
-  // // prefecture: "Cilodong, Depok Kota",
-  // standard: {
-  //   equals: null,
-  // },
+  standard: {
+    equals: null,
+  },
 };
 
 export async function GET() {

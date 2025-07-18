@@ -24,7 +24,7 @@ model House {
   comment        String?
   warteg         String?
   schoolDistance String?
-  workDistance   String?
+  workDistance   String? // pajak
   noNoise        String?
   flood          String?
   gateOrCanopy   String?

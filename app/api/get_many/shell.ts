@@ -13,12 +13,10 @@ export async function getHousesByCity(city: string) {
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
 
-  const monthlyBoros = "1700000_to_2500000";
-  const monthly = `1700000_to_${maxBudget}`;
-  const yearly = "20000000_to_25000000";
+  const price = "4000000_to_90000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2012?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_4000000_to_100000000`;
+  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2012?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_${price}`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
@@ -80,8 +78,6 @@ export async function getHousesByCity(city: string) {
           };
 
           arr.push(finalObj);
-
-          console.log(url, "<< url");
 
           return { key, value };
         });
