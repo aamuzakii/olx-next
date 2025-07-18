@@ -19,16 +19,19 @@ function getAdAge(postedAt: string) {
   return `${diffDays} days ago`;
 }
 
+const merk = "daihatsu-xenia";
+const tahun = "2012";
+
 export async function getHousesByCity(city: string) {
   // return []
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
 
-  const price = "4000000_to_100000000";
+  const price = "4000000_to_90000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2013?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_${price}`;
+  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-${tahun}?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-${merk}%2Cprice_between_${price}`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
@@ -69,7 +72,13 @@ export async function getHousesByCity(city: string) {
         const result = _.map(mama, (value, key) => {
           console.log(value.title, "<< value");
 
-          const { price, images, locations_resolved, created_at_first } = value;
+          const {
+            price,
+            images,
+            locations_resolved,
+            created_at_first,
+            favorites,
+          } = value;
 
           // convert title to dash
           const title = value.title
@@ -84,9 +93,10 @@ export async function getHousesByCity(city: string) {
             price: price.value.raw,
             publishedStr: `${locations_resolved.SUBLOCALITY_LEVEL_1_name} - ${locations_resolved.ADMIN_LEVEL_3_name}`,
             imageUrl: images[0].url,
-            feature: "",
-            title,
-            prefecture: "",
+            feature: "fitur",
+            title: "judul",
+            prefecture: "prefecture",
+            warteg: favorites.count + " loved it",
             schoolDistance: getAdAge(created_at_first),
           };
 
