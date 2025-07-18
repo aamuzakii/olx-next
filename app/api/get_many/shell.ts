@@ -7,16 +7,28 @@ const { JSDOM } = require("jsdom");
 import { jsonrepair } from "jsonrepair";
 import _ from "lodash";
 
+function getAdAge(postedAt: string) {
+  const postedDate = new Date(postedAt);
+  const now = new Date();
+
+  const diffMs = now - postedDate;
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "1 day ago";
+  return `${diffDays} days ago`;
+}
+
 export async function getHousesByCity(city: string) {
   // return []
   const sortByDate = "&sorting=desc-creation";
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
 
-  const price = "4000000_to_90000000";
+  const price = "4000000_to_100000000";
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2012?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_${price}`;
+  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-2013?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-suzuki-ertiga%2Cmake_eq_mobil-bekas-suzuki%2Cprice_between_${price}`;
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
@@ -57,7 +69,7 @@ export async function getHousesByCity(city: string) {
         const result = _.map(mama, (value, key) => {
           console.log(value.title, "<< value");
 
-          const { price, images } = value;
+          const { price, images, locations_resolved, created_at_first } = value;
 
           // convert title to dash
           const title = value.title
@@ -70,11 +82,12 @@ export async function getHousesByCity(city: string) {
           const finalObj = {
             url,
             price: price.value.raw,
-            publishedStr: "gatau",
+            publishedStr: `${locations_resolved.SUBLOCALITY_LEVEL_1_name} - ${locations_resolved.ADMIN_LEVEL_3_name}`,
             imageUrl: images[0].url,
             feature: "",
             title,
             prefecture: "",
+            schoolDistance: getAdAge(created_at_first),
           };
 
           arr.push(finalObj);
