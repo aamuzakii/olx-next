@@ -20,6 +20,7 @@ function getAdAge(postedAt: string) {
 }
 
 const merk = "daihatsu-xenia";
+const merks = ["daihatsu-xenia", "toyota-avanza"];
 const tahun = "2012";
 
 export async function getHousesByCity(city: string) {
@@ -28,10 +29,14 @@ export async function getHousesByCity(city: string) {
   const sortByRelevance = "&sorting=desc-relevance";
   const empty = "";
 
-  const price = "4000000_to_90000000";
+  const price = "6300000_to_90000000";
+
+  const tipeFilter = merks.map((m) => `mobil-bekas-${m}`).join("_and_");
 
   const fileName = "list.txt";
-  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-${tahun}?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_mobil-bekas-${merk}%2Cprice_between_${price}`;
+  const webUrl = `https://www.olx.co.id/depok-kota_g4000024/mobil-bekas_c198/q-${tahun}?filter=m_seller_type_eq_seller-type-individu%2Cm_tipe_eq_${tipeFilter}%2Cprice_between_${price}`;
+
+  // m_tipe_eq_mobil-bekas-daihatsu-xenia_and_mobil-bekas-daihatsu-sigra
   const command = `curl -o ${fileName} "${webUrl}"`;
   console.info(webUrl);
 
