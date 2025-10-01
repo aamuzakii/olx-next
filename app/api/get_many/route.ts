@@ -28,6 +28,7 @@ export async function GET() {
     // tangerangKota,
     // bekasiKota,
   ];
+  // test
 
   const compoundedHouses = [];
 
