@@ -10,6 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum PaymentType {
+  HOURLY
+  FIXED
+}
+
+enum ExperienceLevel {
+  ENTRY
+  INTERMEDIATE
+  EXPERT
+}
+
 model House {
   id             Int       @id @default(autoincrement())
   url            String    @unique
@@ -35,14 +46,21 @@ model House {
 }
 
 model Job {
-  id          Int      @id @default(autoincrement())
-  url         String   @unique
-  title       String   @default("")
-  stack       String?
-  country     String?
-  fee         String?
-  candidates  String?
-  description String?
-  date        String?
-  deleted     Boolean?
+  id              Int              @id @default(autoincrement())
+  url             String           @unique
+  title           String           @default("")
+  stack           String?
+  country         String?
+  fee             String?
+  candidates      String?
+  description     String?
+  date            String?
+  deleted         Boolean?
+  paymentType     PaymentType?
+  minRate         Int?
+  maxRate         Int?
+  fixedBudget     Int?
+  experienceLevel ExperienceLevel?
+  duration        String?
+  weeklyHours     String?
 }
