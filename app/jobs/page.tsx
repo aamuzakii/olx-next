@@ -17,24 +17,31 @@ interface Job {
   fee: string | null;
 }
 
+const applicationFilter = ["Less than 5", "5 to 10", "10 to 15"];
+const _otherCountry = ["United Kingdom", "United States"];
+
 async function getJobs() {
   const prisma = new PrismaClient();
 
-  const jobs = await prisma.job.findMany({
-    where: {
-      deleted: false || null,
-      candidates: {
-        in: ["Less than 5", "5 to 10", "10 to 15"],
-      },
-      country: {
-        notIn: ["India", "Israel", "United Kingdom", "United States"],
-      },
+  const where = {
+    deleted: false || null,
+    candidates: {
+      in: applicationFilter,
     },
+    country: {
+      notIn: ["India", "Israel"],
+    },
+  };
+
+  const jobs = await prisma.job.findMany({
+    where,
     orderBy: { id: "asc" },
   });
 
+  const total = await prisma.job.count({ where });
+
   await prisma.$disconnect();
-  return jobs;
+  return { jobs, total };
 }
 
 async function deleteJob(formData: FormData) {
@@ -53,10 +60,15 @@ async function deleteJob(formData: FormData) {
 }
 
 const JobsPage = async () => {
-  const jobs: Job[] = await getJobs();
+  const { jobs, total } = await getJobs();
 
   return (
     <main className={style.main}>
+      <p className={style.summary}>
+        Showing {jobs.length} of {total} jobs
+        <br />
+        {applicationFilter.join(", ")}
+      </p>
       <div className={style.grid}>
         {jobs.map((job) => {
           const stacks: string[] = JSON.parse(job.stack || "[]");
