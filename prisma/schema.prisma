@@ -63,4 +63,5 @@ model Job {
   experienceLevel ExperienceLevel?
   duration        String?
   weeklyHours     String?
+  otherInfo       String?
 }
