@@ -1,17 +1,11 @@
-import React from "react";
 import style from "./page.module.css";
-import Card from "../card";
-import Trash from "../atom/Trash";
-import Chevron from "../atom/Chevron";
 import { countries } from "./country";
 import { PrismaClient } from "@prisma/client";
-import { useFormState, useFormStatus } from "react-dom";
-import { DeleteForm } from "./delete";
 import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
-interface IJob {
+interface Job {
   id: number;
   url: string;
   title: string;
@@ -23,134 +17,100 @@ interface IJob {
   fee: string | null;
 }
 
-const nextApiUrl = process.env.NEXT_API_URL || "";
-
-async function getJobDataNext13() {
-  // const res = await fetch(`/api/jobs`, { cache: "no-store" });
-
-  // const data = await res.json();
-
-  const api = await import("../api/jobs/route");
-  // const foo = await (await res.handler()).json();
-
-  const where = {
-    deleted: false || null,
-    candidates: {
-      in: ["Less than 5", "5 to 10", "10 to 15"],
-    },
-    country: {
-      notIn: ["India", "Israel", "United Kingdom", "United States"],
-    },
-  };
-
+async function getJobs() {
   const prisma = new PrismaClient();
 
-  const houses = await prisma.job.findMany({
-    where,
-    orderBy: {
-      id: "asc",
+  const jobs = await prisma.job.findMany({
+    where: {
+      deleted: false || null,
+      candidates: {
+        in: ["Less than 5", "5 to 10", "10 to 15"],
+      },
+      country: {
+        notIn: ["India", "Israel", "United Kingdom", "United States"],
+      },
     },
+    orderBy: { id: "asc" },
   });
-  await prisma.$disconnect();
 
-  return houses;
+  await prisma.$disconnect();
+  return jobs;
 }
 
-const page = async () => {
-  async function deleteJob(formData: FormData) {
-    "use server";
+async function deleteJob(formData: FormData) {
+  "use server";
 
-    const prisma = new PrismaClient();
+  const prisma = new PrismaClient();
+  const id = formData.get("id");
 
-    const foo = formData.get("id");
+  await prisma.job.update({
+    where: { id: Number(id) },
+    data: { deleted: true },
+  });
 
-    console.log(foo, "<<<<<<<<<<<<<,");
+  await prisma.$disconnect();
+  revalidatePath("/jobs");
+}
 
-    const deleted = await prisma.job.update({
-      where: {
-        id: Number(foo),
-      },
-      data: {
-        deleted: true,
-      },
-    });
-
-    await prisma.$disconnect();
-    revalidatePath("/jobs");
-
-    // mutate data
-    // revalidate cache
-  }
-  interface IFoo {
-    price: string;
-  }
-
-  const handleClickDelete = async (id: number) => {
-    // const res = await fetch(`/api/del-job/${id}`, {
-    //   cache: "no-store",
-    // });
-    // const data: IJob[] = await res.json();
-  };
-
-  const list: IJob[] = await getJobDataNext13();
-
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [dialogText, setDialogText] = useState("");
-
-  // const openDialog = () => setIsOpen(true);
-  // const closeDialog = () => setIsOpen(false);
+const JobsPage = async () => {
+  const jobs: Job[] = await getJobs();
 
   return (
-    <>
-      <main className={style.main}>
-        <div className={style.grid}>
-          {list.map((h) => {
-            let formattedNumber = "";
+    <main className={style.main}>
+      <div className={style.grid}>
+        {jobs.map((job) => {
+          const stacks: string[] = JSON.parse(job.stack || "[]");
 
-            const stacks = JSON.parse(h.stack || "");
-            return (
-              <div className={style.card} key={h.id}>
-                <p>{h.date}</p>
-                <p>{h.fee}</p>
-                <h4 className={style.title}>
-                  {h.id}. {h.title}
-                </h4>
-                {/* <p>{h.description}</p> */}
-                <ul>
-                  {stacks.map((s: string, i: number) => {
-                    return <li key={i}>{s}</li>;
-                  })}
-                </ul>
-                <p>{h.country}</p>
-                <div
-                  style={{
-                    padding: 10,
-                    background: "white",
-                    fontSize: 30,
-                    width: 40,
-                  }}
-                >
-                  {countries[h.country || ""]?.flag}
-                </div>
-                <p>Proposals: {h.candidates}</p>
-                <div className={style.interaction}>
-                  <div className={style.wide}></div>
-
-                  <a href={h.url} target="_blank">
-                    <Chevron />
-                  </a>
-                  <form action={deleteJob}>
-                    <input type="hidden" name="id" value={h.id} />
-                    <button type="submit">Delete</button>
-                  </form>
-                </div>
+          return (
+            <div className={style.card} key={job.id}>
+              <div className={style.meta}>
+                <time>{job.date}</time>
+                <span>{job.fee}</span>
               </div>
-            );
-          })}
-        </div>
-      </main>
-    </>
+
+              <h4 className={style.title}>
+                {job.id}. {job.title}
+              </h4>
+
+              {stacks.length > 0 && (
+                <ul className={style.stackList}>
+                  {stacks.map((s, i) => (
+                    <li key={i} className={style.stackItem}>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div className={style.footer}>
+                <div className={style.location}>
+                  <span className={style.flag}>
+                    {countries[job.country || ""]?.flag}
+                  </span>
+                  <span>{job.country}</span>
+                </div>
+                <span className={style.proposals}>
+                  Proposals: {job.candidates}
+                </span>
+              </div>
+
+              <div className={style.interaction}>
+                <a href={job.url} target="_blank" className={style.link}>
+                  View job &rarr;
+                </a>
+                <form action={deleteJob}>
+                  <input type="hidden" name="id" value={job.id} />
+                  <button type="submit" className={style.deleteBtn}>
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </main>
   );
 };
 
-export default page;
+export default JobsPage;

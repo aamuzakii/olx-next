@@ -1,122 +1,117 @@
-.kartu {
-  border: 1px solid rgba(14,4,5,0.2);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 4px;
-  width: 244px; 
+.main {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: NeueMontreal, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.grid {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .card {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  /* background: #161b22; */
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.wide {
-  width: 10vw;
-  height: 10px;
-}
-
-
-.grid {
-}
-
-.harga {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: black;
-  font-size: 20px;
-  font-family: Roboto;
-}
-
-
-.comment {
-  font-weight: 400;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.blue_comment {
-  color: blue;
-  font-weight: 500;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.empty_comment {
-  color: var(--blackSecondaryText);
-  font-weight: 400;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.feature {
-  color: var(--blackText);
-  font-size: 14px;
-  margin: 2px 0 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.published {
-  font-size: 10px;
-  color: var(--blackSecondaryText);
-}
-
-.published_red {
-  font-size: 10px;
-  color: red;
-}
-
-.bottom {
-  margin: 10px 0;
+.meta {
   display: flex;
   justify-content: space-between;
+  font-size: 13px;
+  color: #8b949e;
 }
 
-.red{
-  background-color: red;
-}
-
-.form {
-  display: none;
-  align-items: center;
-}
-
-.button_wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.comment_wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.main {
-  font-family: NeueMontreal;
-  font-size: 14px;
-  background: #1E1F20;
-  color: #c4c7c5;
-  
-}
 .title {
-  font-size: 20px; 
+  font-size: 20px;
+  font-weight: 600;
+  color: #e6edf3;
+  line-height: 1.4;
+}
+
+.stackList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stackItem {
+  background: #21262d;
+  color: #c9d1d9;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.flag {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.proposals {
+  font-size: 13px;
+  color: #8b949e;
 }
 
 .interaction {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #30363d;
+}
+
+.link {
+  color: #58a6ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.deleteBtn {
+  all: unset;
+  cursor: pointer;
+  font-size: 13px;
+  color: #f85149;
+  padding: 4px 12px;
+  border: 1px solid #f8514940;
+  border-radius: 6px;
+  transition: background 200ms, border-color 200ms;
+}
+
+.deleteBtn:hover {
+  background: #f8514915;
+  border-color: #f8514980;
 }
